@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2019_05_01_041807) do
+=======
+ActiveRecord::Schema.define(version: 2019_05_01_035612) do
+>>>>>>> 10c8f71d59c0bb29be125ff3c5ff4418cb20950d
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +38,19 @@ ActiveRecord::Schema.define(version: 2019_05_01_041807) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "transactions", force: :cascade do |t|
+    t.bigint "user_id"
+    t.integer "price"
+    t.date "date"
+    t.bigint "listing_id"
+    t.text "comment"
+    t.integer "score"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["listing_id"], name: "index_transactions_on_listing_id"
+    t.index ["user_id"], name: "index_transactions_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -52,5 +69,7 @@ ActiveRecord::Schema.define(version: 2019_05_01_041807) do
   end
 
   add_foreign_key "listings", "users"
+  add_foreign_key "transactions", "listings"
+  add_foreign_key "transactions", "users"
   add_foreign_key "users", "locations"
 end
