@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
   devise_for :users
   # Root/Homepage
   get "/", to: "pages#home", as: "root"
@@ -13,5 +14,7 @@ Rails.application.routes.draw do
   # Listings C.R.U.D.
   # Transactions C.U.
 
+=======
+>>>>>>> master
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

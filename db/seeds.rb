@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+<<<<<<< HEAD
 20.times do |i|
   user = User.new(
     full_name: Faker::Name.name_with_middle,
@@ -17,3 +18,5 @@
   user.save!(validate: false)
   puts "Created #{i + 1} users."
 end
+=======
+>>>>>>> master
