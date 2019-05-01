@@ -33,3 +33,14 @@ end
   puts "Created #{i + 1} items."
 end
 
+10.times do |i|
+  order = ProductOrder.new(
+    user: User.find(rand(1..User.all.length)), # random user
+    listing: Listing.find(rand(1..Listing.all.length)), # random listing
+    price: rand(900..10000),
+    date: Date.today
+  )
+  order.save!
+  puts "Created #{i + 1} orders."
+end
+
