@@ -19,7 +19,7 @@
 end
 
 50.times do |i|
-  Listing.create(
+  item = Listing.new(
     # t.bigint "user_id"
   description: Faker::Food.description,
   title: Faker::Food.dish,
@@ -28,6 +28,7 @@ end
   updated_at: Time.now
   # t.index ["user_id"], name: "index_listings_on_user_id"  
   )
+  item.save!(validate: false)
   puts "Created #{i + 1} items."
 end
 
