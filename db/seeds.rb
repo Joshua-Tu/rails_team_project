@@ -17,3 +17,17 @@
   user.save!(validate: false)
   puts "Created #{i + 1} users."
 end
+
+50.times do |i|
+  Listing.create(
+    # t.bigint "user_id"
+  description: Faker::Food.description,
+  title: Faker::Food.dish,
+  price: [5, 10, 20].sample,
+  created_at: Time.now,
+  updated_at: Time.now
+  # t.index ["user_id"], name: "index_listings_on_user_id"  
+  )
+  puts "Created #{i + 1} items."
+end
+

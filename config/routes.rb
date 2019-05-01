@@ -3,12 +3,12 @@ Rails.application.routes.draw do
   # Root/Homepage
   get "/", to: "pages#home", as: "root"
 
-  get "/listings", to: "listings#index", as: "listings"
-  post ""
+  # get "/listings", to: "listings#index", as: "listings"
+  # post ""
 
-  get "/listings/:id", to: "listings#show", as: "single_listing"
+  # get "/listings/:id", to: "listings#show", as: "single_listing"
 
-  get "/users/:id", to: "users#show", as: "user_profile"
+  # get "/users/:id", to: "users#show", as: "user_profile"
 
   # Listings C.R.U.D.
   # Transactions C.U.
