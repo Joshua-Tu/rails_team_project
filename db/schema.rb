@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2019_05_01_035612) do
     t.bigint "user_id"
     t.text "description"
     t.string "title"
-    t.float "price"
+    t.integer "price"
     t.boolean "show_phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
