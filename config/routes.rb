@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get "/", to: "pages#home", as: "root"
 
   get "/listings", to: "listings#index", as: "listings"
+  post ""
 
   get "/listings/:id", to: "listings#show", as: "single_listing"
 
