@@ -5,5 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :listings
   has_one :location
-  has_many :transactions      
+  has_many :product_orders      
 end
