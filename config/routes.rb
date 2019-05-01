@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   get "/users/:id", to: "users#show", as: "user_profile"
 
-  
+  # Listings C.R.U.D.
+  # Transactions C.U.
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
