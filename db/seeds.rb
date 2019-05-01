@@ -9,7 +9,8 @@
   user = User.new(
     full_name: Faker::Name.name_with_middle,
     email: Faker::Internet.free_email,
-    encrypted_password: "111111",
+    # encrypted_password: "abcde",
+    password: "abcde",
     phone_number: Faker::PhoneNumber.phone_number,
     # user_avatar: Faker::Avatar.image("user_avatar", "50x50"),
     username: Faker::FunnyName.name,  
