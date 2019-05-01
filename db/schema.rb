@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 2019_05_01_054309) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-<<<<<<< HEAD
   create_table "listings", force: :cascade do |t|
     t.bigint "user_id"
     t.text "description"
@@ -27,8 +26,6 @@ ActiveRecord::Schema.define(version: 2019_05_01_054309) do
     t.index ["user_id"], name: "index_listings_on_user_id"
   end
 
-=======
->>>>>>> master
   create_table "locations", force: :cascade do |t|
     t.string "city"
     t.string "state"
