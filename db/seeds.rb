@@ -5,6 +5,17 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+50.times do |i| # This should be above User generation
+  location = Location.new(
+    city: Faker::Address.city,
+    state: Faker::Address.state,
+    country: Faker::Address.country
+  )
+  location.save!
+  puts "Created #{i + 1} locations."
+end
+
 20.times do |i|
   user = User.new(
     full_name: Faker::Name.name_with_middle,
@@ -14,12 +25,13 @@
     phone_number: Faker::PhoneNumber.phone_number,
     # user_avatar: Faker::Avatar.image("user_avatar", "50x50"),
     username: Faker::FunnyName.name,  
+    location: Location.find(rand(1..Location.all.length))
   )
   user.save!(validate: false)
   puts "Created #{i + 1} users."
 end
 
-50.times do |i|
+20.times do |i|
   item = Listing.new(
     # t.bigint "user_id"
   description: Faker::Food.description,
