@@ -1,5 +1,7 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
+  
 
   # GET /listings
   # GET /listings.json
@@ -14,7 +16,7 @@ class ListingsController < ApplicationController
 
   # GET /listings/new
   def new
-    @listing = Listing.new
+    @listing = current_user.listings.build
   end
 
   # GET /listings/1/edit
