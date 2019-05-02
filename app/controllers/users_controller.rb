@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     
     
+    
   end
  
   # GET /users/1/edit
