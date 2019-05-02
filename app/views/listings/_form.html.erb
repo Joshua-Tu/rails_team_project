@@ -1,12 +1,5 @@
-<<<<<<< HEAD
-<h1>Sell your Mystery Box</h1>
-
-<%= form_with(model: @listing) do |form| %>
-  <% if @listing.errors.any? %>
-=======
 <%= form_with(model: listing, local: true) do |form| %>
   <% if listing.errors.any? %>
->>>>>>> tmp
     <div id="error_explanation">
       <h2><%= pluralize(listing.errors.count, "error") %> prohibited this listing from being saved:</h2>
 
@@ -18,40 +11,9 @@
     </div>
   <% end %>
 
-<<<<<<< HEAD
-
-<%= form_for @listing do |f| %>
-    <p>
-        <%= f.label :title %>
-        <%= f.text_field :title %>
-    </p>
-    <p>
-        <%= f.label :description %>
-        <%= f.text_area :description %>
-    </p>
-    <p>
-        <%= f.label :price %>
-        <%= f.number_field :price, min: 0 %>
-    </p>
-    <p>
-        <b>Show Phone Number?</b><br />
-        <%= f.label 'show_phone_true', 'Show Phone number.' %>
-        <%= f.radio_button :show_phone, true %>
-        <%= f.label 'show_phone_false', 'Hide Phone number.'%>
-        <%= f.radio_button :show_phone, false %>
-    </p>
-    <p>
-        <input type="submit" value="create new listing">
-    </p>
-    <% end %>
-
-<% end %>
-
-=======
   <div class="actions">
     <%= label_tag(:title, "Listing Title: ") %>
-    <%= text_field_tag(:title) %>
+    <%= form.text_field(:title) %>
     <%= form.submit %>
   </div>
 <% end %>
->>>>>>> tmp
