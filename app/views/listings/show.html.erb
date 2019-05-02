@@ -3,6 +3,9 @@
 
 <h2><%= @listing.title %></h2>
 <div>
+    <%= image_tag @listing.picture if @listing.picture.attached? %>
+</div>
+<div>
     <%= @listing.description %>
 </div>
 <div>

@@ -12,8 +12,10 @@
   <tbody>
     <% @listings.each do |listing| %>
       <tr>
+        <td><%= image_tag listing.picture if listing.picture.attached? %>
         <td><%= listing.title %></td>
         <td><%= listing.price %></td>
+
         <% if @mark == "yes" %>
           <%= current_user.phone_number %>
         <% end %>
