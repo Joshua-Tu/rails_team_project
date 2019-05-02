@@ -31,12 +31,12 @@
 <nav class="navbar navbar-light amber lighten-4 mb-4">
 
   <!-- Navbar brand -->
-  <a class="navbar-brand" href="#">Navbar</a>
+  <%= link_to "Mystery Box Market", root_path, class: "navbar-brand" %>
 
   <!-- Collapse button -->
-  <button class="navbar-toggler first-button" type="button" data-toggle="collapse" data-target="#navbarSupportedContent20"
+  <button class="navbar-toggler animated-button" type="button" data-toggle="collapse" data-target="#navbarSupportedContent20"
     aria-controls="navbarSupportedContent20" aria-expanded="false" aria-label="Toggle navigation">
-    <div class="animated-icon1"><span></span><span></span><span></span></div>
+    <div class="animated-icon"><span></span><span></span><span></span></div>
   </button>
 
   <!-- Collapsible content -->
@@ -64,5 +64,13 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
+    <script type="text/javascript">
+    // Navbar animation
+      $(document).ready(function () {
+        $('.animated-button').on('click', function () {
+          $('.animated-icon').toggleClass('open');
+        });
+      });
+    </script>
   </body>
 </html>
