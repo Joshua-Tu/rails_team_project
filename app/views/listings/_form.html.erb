@@ -12,8 +12,20 @@
   <% end %>
 
   <div class="actions">
+    <p>
     <%= label_tag(:title, "Listing Title: ") %>
     <%= form.text_field(:title) %>
-    <%= form.submit %>
+    </p>
+    <p>
+      <%= label_tag(:price, "Price: ") %>
+      <%= form.number_field(:price) %>
+    </p>
+    <p>
+    <p>
+      <%= label_tag(:description, "Description: ")%>
+      <%= form.text_field(:description) %>
+    </p>
+      <%= form.submit %>
+    </p>
   </div>
 <% end %>

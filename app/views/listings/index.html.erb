@@ -13,6 +13,8 @@
     <% @listings.each do |listing| %>
       <tr>
         <td><%= listing.title %></td>
+        <td><%= listing.price %></td>
+        <td><%= listing.description %></td>
         <td><%= link_to 'Show', listing %></td>
           <% if listing.user == current_user %>
           <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
