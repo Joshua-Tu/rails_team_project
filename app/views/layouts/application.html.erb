@@ -11,7 +11,7 @@
   <nav class="collapse navbar-collapse navbar-ex1-collapse">
         	<% if user_signed_in? -%>
 						<ul class="nav navbar-nav navbar-right">
-							<li><%= link_to 'Sell a mystery box', new_user_session_path %></li>
+							<li><%= link_to 'Sell a mystery box', new_listing_path %></li>
 							<li><%= link_to 'Account', edit_user_registration_path %></li>
 							<li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
 						</ul>
@@ -19,6 +19,7 @@
 						<ul class="nav navbar-nav pull-right">
 							<li><%= link_to 'Sign up', new_user_registration_path %></li>
 							<li><%= link_to 'Sign in', new_user_session_path %></li>
+              <li><%= link_to 'Want to sell a mystery box?', new_listing_path %></li>
 						</ul>
 					<% end -%>
         </nav>
