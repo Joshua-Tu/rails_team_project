@@ -33,7 +33,7 @@
         <%= link_to "Browse Listings", listings_path, class: 'nav-link' %>
       </li>
       <li class="nav-item">
-        <%= link_to "Create a Listing", listings_new_path, class: 'nav-link' %>
+        <%= link_to "Create a Listing", new_listing_path, class: 'nav-link' %>
       </li>
       <% if user_signed_in? -%>
         <li><%= link_to 'Account', edit_user_registration_path %></li>
