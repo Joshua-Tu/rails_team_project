@@ -25,6 +25,11 @@
       <%= label_tag(:description, "Description: ")%>
       <%= form.text_field(:description) %>
     </p>
+    <p>
+    <%= form.radio_button :show_num, 'yes' %> Show Phone Number<br />
+    <%= form.radio_button :show_num, 'no' %> Hide Phone Number<br />
+    </p>
+    <p>
       <%= form.submit %>
     </p>
   </div>

@@ -15,6 +15,9 @@
         <td><%= listing.title %></td>
         <td><%= listing.price %></td>
         <td><%= listing.description %></td>
+        <% if @mark == "yes" %>
+          <%= current_user.phone_number %>
+        <% end %>
         <td><%= link_to 'Show', listing %></td>
           <% if listing.user == current_user %>
           <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
