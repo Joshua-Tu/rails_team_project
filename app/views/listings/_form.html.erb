@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 <h1>Sell your Mystery Box</h1>
 
 <%= form_with(model: @listing) do |form| %>
   <% if @listing.errors.any? %>
+=======
+<%= form_with(model: listing, local: true) do |form| %>
+  <% if listing.errors.any? %>
+>>>>>>> dev
     <div id="error_explanation">
       <h2><%= pluralize(listing.errors.count, "error") %> prohibited this listing from being saved:</h2>
 
@@ -13,6 +18,7 @@
     </div>
   <% end %>
 
+<<<<<<< HEAD
 
 <%= form_for @listing do |f| %>
     <p>
@@ -41,3 +47,11 @@
 
 <% end %>
 
+=======
+  <div class="actions">
+    <%= label_tag(:title, "Listing Title: ") %>
+    <%= text_field_tag(:title) %>
+    <%= form.submit %>
+  </div>
+<% end %>
+>>>>>>> dev
