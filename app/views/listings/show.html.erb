@@ -1,11 +1,21 @@
 <p id="notice"><%= notice %></p>
 
 
-<% if @listing.user == current_user %>
-  <div>
-    <%= link_to 'Edit', edit_listing_path(@listing), class: "btn btn-default" %>
-    <%= link_to 'Destroy', @listing, method: :delete, data: { confirm: 'Are you sure?' }, class:
-    "btn btn-default" %>
-  <% else %>
-  </div>
-<% end %>
+<h2><%= @listing.title %></h2>
+<div>
+    <%= image_tag @listing.picture if @listing.picture.attached? %>
+</div>
+<div>
+    <%= @listing.description %>
+</div>
+<div>
+    $<%= @listing.price %>
+</div>
+<div>
+    <% if @mark == "yes" %>
+        <%= current_user.phone_number %>
+    <% end %>
+</div>
+
+<%= link_to 'Edit', edit_listing_path(@listing) %> |
+<%= link_to 'Back', listings_path %>

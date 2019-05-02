@@ -28,6 +28,7 @@ class ListingsController < ApplicationController
   def create
 
     @listing = current_user.listings.build(listing_params)
+    p @mark = params[:listing][:show_num]
 
     respond_to do |format|
       if @listing.save
@@ -72,6 +73,6 @@ class ListingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
-      params.require(:listing).permit(:title)
+      params.require(:listing).permit(:title, :price, :description, :phone_number, :picture)
     end
 end

@@ -12,8 +12,29 @@
   <% end %>
 
   <div class="actions">
+    <p>
     <%= label_tag(:title, "Listing Title: ") %>
     <%= form.text_field(:title) %>
-    <%= form.submit %>
+    </p>
+    <p>
+      <%= label_tag(:price, "Price: ") %>
+      <%= form.number_field(:price) %>
+    </p>
+    <p>
+    <p>
+      <%= label_tag(:description, "Description: ")%>
+      <%= form.text_field(:description) %>
+    </p>
+    <p>
+      <%= label_tag(:picture, "Picture") %>
+      <%= form.file_field(:picture, accept: 'image/png,image/gif,image/jpeg,image/jpg' ) %>
+    </p>
+    <p>
+    <%= form.radio_button :show_num, 'yes' %> Show Phone Number<br />
+    <%= form.radio_button :show_num, 'no' %> Hide Phone Number<br />
+    </p>
+    <p>
+      <%= form.submit %>
+    </p>
   </div>
 <% end %>
