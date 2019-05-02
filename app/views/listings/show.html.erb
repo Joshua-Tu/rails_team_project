@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+
+<% if @listing.user == current_user %>
+  <div>
+    <%= link_to 'Edit', edit_listing_path(@listing), class: "btn btn-default" %>
+    <%= link_to 'Destroy', @listing, method: :delete, data: { confirm: 'Are you sure?' }, class:
+    "btn btn-default" %>
+  <% else %>
+  </div>
+<% end %>

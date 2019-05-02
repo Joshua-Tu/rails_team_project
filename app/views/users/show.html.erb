@@ -1,0 +1,5 @@
+<% if user_signed_in? and @user.id == current_user.id %>
+  <%= current_user.full_name %>
+<% else %>
+  Hey, you are not logged in, so you can only see this.
+<% end %>
