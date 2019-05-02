@@ -30,13 +30,12 @@
         <%= link_to "Home <span class='sr-only'>(current)</span>".html_safe, root_path, class: 'nav-link' %>
       </li>
       <li class="nav-item">
-        <%#= link_to "Browse Listings", listings_path, class: 'nav-link' %>
+        <%= link_to "Browse Listings", listings_path, class: 'nav-link' %>
       </li>
       <li class="nav-item">
-        <%#= link_to "Create a Listing", listings_new_path, class: 'nav-link' %>
+        <%= link_to "Create a Listing", listings_new_path, class: 'nav-link' %>
       </li>
       <% if user_signed_in? -%>
-        <li><%= link_to 'Sell a mystery box', new_user_session_path %></li>
         <li><%= link_to 'Account', edit_user_registration_path %></li>
         <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
       <% else %>
