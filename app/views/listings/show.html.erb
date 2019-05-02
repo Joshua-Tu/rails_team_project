@@ -1,10 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 
-<% if current_user.present? && current_user.id == @listing.user %>
+<% if @listing.user == current_user %>
   <div>
-    <%= listing_to 'Edit', edit_listing_path(@listing), class: "btn btn-default" %>
-    <%= listing_to 'Destroy', @listing, method: :delete, data: { confirm: 'Are you sure?' }, class:
+    <%= link_to 'Edit', edit_listing_path(@listing), class: "btn btn-default" %>
+    <%= link_to 'Destroy', @listing, method: :delete, data: { confirm: 'Are you sure?' }, class:
     "btn btn-default" %>
   <% else %>
   </div>
