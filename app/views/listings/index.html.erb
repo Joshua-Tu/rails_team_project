@@ -22,7 +22,7 @@
         <% unless listing.picture.attached? %>
           <%= link_to image_tag('defaultbox.jpg', class: "img-thumbnail"), listing %>
         <% else %>
-          <%= link_to image_tag(listing.picture), listing %>
+          <%= link_to image_tag(listing.picture, class: "img-thumbnail"), listing %>
         <% end %>
       </div><!-- end of .listing-image -->
 
@@ -43,7 +43,7 @@
     <% if listing == @listings.last %>
       <% remaining_columns = 3 - (@listings.count % 3) %>
       <% if remaining_columns > 0 && remaining_columns < 3 %>
-        <% remaining_columns.each do %>
+        <% remaining_columns.times do %>
           <div class="col-sm"></div>
         <% end %>
       <% end %>
