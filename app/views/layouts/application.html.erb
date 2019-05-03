@@ -49,14 +49,15 @@
     <div id="page-wrapper" class="container">
 
       <% if notice %>
-        <p class="alert alert-warning notice"><%= notice %>that's no good...</p>
+        <p class="alert alert-warning notice"><%= notice %></p>
       <% end %>
 
       <% if alert %>
-        <p class="alert alert-danger"><%= alert %>that's bad!</p>
+        <p class="alert alert-danger"><%= alert %></p>
       <% end %>
 
       <%= yield %>
+
 
     </div>
     <!-- Page Wrapper -->
