@@ -12,10 +12,12 @@
     $<%= @listing.price %>
 </div>
 <div>
-    <% if @mark == "yes" %>
-        <%= current_user.phone_number %>
+    <h4>Contact the Seller</h4>
+    <% case @mark %>
+        <% when @mark == "yes" %>
+            <%= current_user.phone_number %>
     <% end %>
 </div>
 
-<%= link_to 'Edit', edit_listing_path(@listing) %> |
+<%= link_to 'Edit', edit_listing_path(@listing) %> 
 <%= link_to 'Back', listings_path %>
