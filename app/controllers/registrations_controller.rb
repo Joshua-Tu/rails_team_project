@@ -1,40 +1,61 @@
+class RegistrationsController < Devise::RegistrationsController
 #
 #  This controller extends the Devise gem's RegistrationsController.
 #
-class RegistrationsController < Devise::RegistrationsController
+  before_action :set_user, only: [:add_user_loaction]
+  after_action :add_user_loaction
+
   def new
     super
   end
 
   def create
-    # When a user signs up / registers:
-    # If input_location matches an entity in the location table, assign that location_id to the new user.
-    # ELSE create a new location with the input_location data AND assign that location to the new user.
-
-    # Below is the entire parent class' create method
-    build_resource(sign_up_params)
-
-    resource.save
-    yield resource if block_given?
-    if resource.persisted?
-      if resource.active_for_authentication?
-        set_flash_message! :notice, :signed_up
-        sign_up(resource_name, resource)
-        respond_with resource, location: after_sign_up_path_for(resource)
-        p resource
-      else
-        set_flash_message! :notice, :"signed_up_but_#{resource.inactive_message}"
-        expire_data_after_sign_in!
-        respond_with resource, location: after_inactive_sign_up_path_for(resource)
-      end
-    else
-      clean_up_passwords resource
-      set_minimum_password_length
-      respond_with resource
-    end
+    super
   end
 
   def update
     super
   end
+
+  private 
+
+  def set_user
+    @user = User.find_by(email: sign_up_params[:email])
+  end
+
+  def add_user_loaction
+    user_location = Location.find_by(
+      city: params[:city],
+      state: params[:state],
+      country: params[:country]
+    ) # => nil if not found
+
+    if user_location != nil
+      # If user_location(user input) exists in table
+      # update user to associate with that location
+      @user.update(location: user_location)
+    else
+      # user_location(user input) not found in location table
+      # add a new row to the location table and associate it with user
+      new_location = Location.create(
+        city: params[:city], 
+        state: params[:state], 
+        country: params[:country]
+      )
+      @user.update(location: new_location)
+    end
+
+    ## Test
+    #p "****************************"
+    #p "User"
+    #p @user
+    #p "****************************"
+    #p "User.location"
+    #p @user.location
+    #p "****************************"
+    #p "User.location.users"
+    #p @user.location.users
+    #p "****************************"
+  end
+
 end 
