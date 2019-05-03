@@ -44,18 +44,6 @@ class RegistrationsController < Devise::RegistrationsController
       )
       @user.update(location: new_location)
     end
-
-    ## Test
-    #p "****************************"
-    #p "User"
-    #p @user
-    #p "****************************"
-    #p "User.location"
-    #p @user.location
-    #p "****************************"
-    #p "User.location.users"
-    #p @user.location.users
-    #p "****************************"
   end
 
 end 

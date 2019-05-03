@@ -1,6 +1,8 @@
+<% if @user.picture.attached? %>
 <div>
-  <%= @user.id %>
+  <%= image_tag @user.picture %>
 </div>
+<% end %>
 
 <div>
   <%= @user.username %>
