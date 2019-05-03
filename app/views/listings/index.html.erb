@@ -27,8 +27,8 @@
         <% end %>
       </div><!-- end of .listing-image -->
 
-      <div class="listing-content">
-        <p><%= listing.title %></p>
+      <div class="listing-content mt-4">
+        <h5><%= listing.title %></h5>
         <p><%= listing.price %></p>
         <% if @mark == "yes" %>
           <%= current_user.phone_number %>
