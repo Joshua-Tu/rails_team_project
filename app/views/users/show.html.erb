@@ -1,5 +1,77 @@
-<% if user_signed_in? and @user.id == current_user.id %>
-  <%= current_user.full_name %>
-<% else %>
-  Hey, you are not logged in, so you can only see this.
+<% if @user.picture.attached? %>
+<div>
+  <%= image_tag @user.picture %>
+</div>
 <% end %>
+
+<div>
+  User ID: <%= @user.id %>
+</div>
+
+<div>
+  User Name: <%= @user.username %> 
+</div>
+
+<div>
+  email: <%= @user.email %>
+</div>
+
+<div>
+  User Rating: *****
+</div>
+
+
+<% if user_signed_in? and @user.id == current_user.id %>
+    <div>
+      Address:
+      <%= @user.location.city %>
+      <%= @user.location.state %><br>
+      <%= @user.location.country %>
+    </div>
+<% else %>
+  Not logged in, no location.
+<% end %>
+
+<div>
+  <button> <%= link_to "Edit", edit_user_path %> <button>
+</div>
+
+<h2 class="test">Transaction History</h2>
+  <div>
+    <% @user.listings.each do |listing| %>
+      <% if listing.picture.attached? %>
+      <div>
+        <div class="picture"><%= link_to image_tag(listing.picture), listing %></div>
+        <table>
+          <tr>
+            <td>Price:</td>
+            <td><%= listing.price %></td>
+          </tr>
+
+          <tr>      
+            <td>Created at:</td>
+            <td><%= listing.created_at %></td>
+          </tr>
+
+          <tr>
+            <td>sold to/bought from:</td>
+            <td>[Other User's name]</td>
+          <tr>
+
+          <tr>
+            <td>Rating: </td>
+            <td>[*****]</td>
+          <tr>
+        </table>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  
+
+
+
+
+
+    
