@@ -4,33 +4,38 @@
 <h1>Listings</h1>
 
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
     <% @listings.each do |listing| %>
-      <tr>
-        <td><%= image_tag listing.picture if listing.picture.attached? %>
-        <td><%= listing.title %></td>
-        <td><%= listing.price %></td>
+      <div>
+        <% unless listing.picture.attached? %>
+          <p><%= link_to image_tag('defaultbox.jpg'), listing %></p>
+        <% else %>
+          <p><%= link_to image_tag(listing.picture), listing %></p>
+        <% end %>
+
+        
+
+        <%# <% image_tag picture, listing_path ) %> 
+        
+        <%# <p><%= image_tag url_for(listing.picture) if listing.picture.attached? %> 
+        <%# <% end %>
+    
+  
+        <p><%= listing.title %></p>
+        <p><%= listing.price %></p>
 
         <% if @mark == "yes" %>
           <%= current_user.phone_number %>
         <% end %>
-        <td><%= link_to 'Show', listing %></td>
+        <p><%= link_to 'Show', listing %></p>
           <% if listing.user == current_user %>
-          <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
-          <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <p><%= link_to 'Edit', edit_listing_path(listing) %></p>
+            <p><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           <% end %>
-        
-      </tr>
+
+      </div>
     <% end %>
-  </tbody>
-</table>
+
 
 <br>
 

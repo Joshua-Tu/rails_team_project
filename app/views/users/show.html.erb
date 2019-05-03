@@ -1,9 +1,33 @@
-<div>[user avatar image]</div>
-<div>User Rating: *****</div>
-<div>User ID: <%= current_user.id %></div>
-<div>User Name: <%= current_user.username %> </div>
+<% if @user.picture.attached? %>
+<div>
+  <%= image_tag @user.picture %>
+</div>
+<% end %>
+
+<div>
+  User ID: <%= @user.id %>
+</div>
+
+<div>
+  User Name: <%= @user.username %> 
+</div>
+
+<div>
+  email: <%= @user.email %>
+</div>
+
+<div>
+  User Rating: *****
+</div>
+
+
 <% if user_signed_in? and @user.id == current_user.id %>
-  <div>Location: <%= current_user.phone_number %></div>    
+    <div>
+      Address:
+      <%= @user.location.city %>
+      <%= @user.location.state %><br>
+      <%= @user.location.country %>
+    </div>
 <% else %>
   Not logged in, no location.
 <% end %>
@@ -14,7 +38,7 @@
 
 <h2 class="test">Transaction History</h2>
   <div>
-    <% current_user.listings.each do |listing| %>
+    <% @user.listings.each do |listing| %>
       <% if listing.picture.attached? %>
       <div>
         <div class="picture"><%= link_to image_tag(listing.picture), listing %></div>

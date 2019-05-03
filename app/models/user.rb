@@ -6,5 +6,6 @@ class User < ApplicationRecord
   has_many :listings
   has_one :locations_user
   has_one :location, through: :locations_user
-  has_many :product_orders      
+  has_many :product_orders
+  has_one_attached :picture
 end
