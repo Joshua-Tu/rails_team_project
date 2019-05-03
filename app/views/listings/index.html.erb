@@ -1,7 +1,7 @@
 <h2 class="text-center mb-4">Browse Listings</h2>
-<p class="text-center">
-  <%= link_to 'Create a Listing', new_listing_path %>
-</p>
+<div class="text-center mb-4">
+    <%= link_to 'Create a Listing', new_listing_path, class: "btn btn-primary" %>
+</div>
 
 <div id="listings-container" class="container">
 
@@ -18,7 +18,7 @@
       <div class="row"><!-- open .row -->
     <% end %>
 
-    <div class="col-sm"><!-- open column -->
+    <div class="col-sm-4"><!-- open column -->
       <div class="listing-image">
         <% unless listing.picture.attached? %>
           <%= link_to image_tag('defaultbox.jpg', class: "img-thumbnail"), listing %>
@@ -47,7 +47,7 @@
       <% remaining_columns = 3 - (@listings.count % 3) %>
       <% if remaining_columns > 0 && remaining_columns < 3 %>
         <% remaining_columns.times do %>
-          <div class="col-sm"></div>
+          <div class="col-sm-4"></div>
         <% end %>
       <% end %>
       </div><!-- close .row -->
