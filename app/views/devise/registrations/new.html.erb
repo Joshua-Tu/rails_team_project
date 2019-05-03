@@ -18,11 +18,6 @@
     <%= f.text_field :username %>
   </div>
 
-  <!--
-    When a user signs up / registers:
-    If input_location matches an entity in the location table, assign that location_id to the new user.
-    ELSE create a new location with the input_location data AND assign that location to the new user.
-  -->
   <div class="field">
     <%= label_tag :city %>
     <%= text_field_tag :city %>
