@@ -14,9 +14,13 @@
   <tbody>
     <% @listings.each do |listing| %>
       <tr>
-        <% if listing.picture.attached? %>
-          <td><%= link_to image_tag(listing.picture), listing %>
+        <% unless listing.picture.attached? %>
+          <td><%= link_to image_tag('defaultbox.jpg'), listing %></td>
+        <% else %>
+          <td><%= link_to image_tag(listing.picture), listing %></td>
         <% end %>
+
+        
 
         <%# <% image_tag picture, listing_path ) %> 
         

@@ -3,7 +3,12 @@
 
 <h2><%= @listing.title %></h2>
 <div>
-    <%= image_tag @listing.picture if @listing.picture.attached? %>
+    <% unless @listing.picture.attached? %>
+        <%= image_tag('defaultbox.jpg') %>
+    <% else %>
+        <%= image_tag(@listing.picture) %>
+    <% end %>
+
 </div>
 <div>
     <%= @listing.description %>
