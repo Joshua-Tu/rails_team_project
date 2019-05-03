@@ -1,6 +1,8 @@
 <p id="notice"><%= notice %></p>
+<%= link_to 'New Listing', new_listing_path %>
 
 <h1>Listings</h1>
+
 
 <table>
   <thead>
@@ -12,10 +14,19 @@
   <tbody>
     <% @listings.each do |listing| %>
       <tr>
+        <td><%= image_tag listing.picture if listing.picture.attached? %>
         <td><%= listing.title %></td>
+        <td><%= listing.price %></td>
+
+        <% if @mark == "yes" %>
+          <%= current_user.phone_number %>
+        <% end %>
         <td><%= link_to 'Show', listing %></td>
-        <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
-        <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% if listing.user == current_user %>
+          <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
+          <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
+        
       </tr>
     <% end %>
   </tbody>
@@ -23,4 +34,3 @@
 
 <br>
 
-<%= link_to 'New Listing', new_listing_path %>

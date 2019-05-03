@@ -1,4 +1,21 @@
 <p id="notice"><%= notice %></p>
 
+
+<h2><%= @listing.title %></h2>
+<div>
+    <%= image_tag @listing.picture if @listing.picture.attached? %>
+</div>
+<div>
+    <%= @listing.description %>
+</div>
+<div>
+    $<%= @listing.price %>
+</div>
+<div>
+    <% if @mark == "yes" %>
+        <%= current_user.phone_number %>
+    <% end %>
+</div>
+
 <%= link_to 'Edit', edit_listing_path(@listing) %> |
 <%= link_to 'Back', listings_path %>
