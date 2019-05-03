@@ -44,9 +44,23 @@
       </div>
     </nav>
     <!--/.Navbar-->
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+
+    <!-- Page Wrapper -->
+    <div id="page-wrapper" class="container">
+
+      <% if notice %>
+        <p class="alert alert-warning notice"><%= notice %>that's no good...</p>
+      <% end %>
+
+      <% if alert %>
+        <p class="alert alert-danger"><%= alert %>that's bad!</p>
+      <% end %>
+
+      <%= yield %>
+
+    </div>
+    <!-- Page Wrapper -->
+
     <script type="text/javascript">
     // Navbar animation
       $(document).ready(function () {
