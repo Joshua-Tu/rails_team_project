@@ -6,7 +6,6 @@
 <div id="listings-container" class="container">
 
   <% @listings.each_with_index do |listing, index| %>
-    <%# i is the index of listing in @listings %>
 
     <% if index == 0 # the very first listing %>
       <div class="row"><!-- open .row -->
@@ -19,28 +18,30 @@
     <% end %>
 
     <div class="col-sm-4"><!-- open column -->
-      <div class="listing-image">
-        <% unless listing.picture.attached? %>
-          <%= link_to image_tag('defaultbox.jpg', class: "img-thumbnail"), listing %>
-        <% else %>
-          <%= link_to image_tag(listing.picture, class: "img-thumbnail"), listing %>
-        <% end %>
-      </div><!-- end of .listing-image -->
-
-      <div class="listing-content mt-4">
-        <h5><%= listing.title %></h5>
-        <p><%= listing.price %></p>
-        <% if @mark == "yes" %>
-          <%= current_user.phone_number %>
-        <% end %>
-        <p>
-          <%= link_to '<span class="badge badge-info">View Listing</span>'.html_safe, listing %>
-          <% if listing.user == current_user %>
-            <%= link_to '<span class="badge badge-warning">Edit</span>'.html_safe, edit_listing_path(listing) %>
-            <%= link_to '<span class="badge badge-danger">Remove</span>'.html_safe, listing, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <div class="container">
+        <div class="listing-image">
+          <% unless listing.picture.attached? %>
+            <%= link_to image_tag('defaultbox.jpg', class: "img-thumbnail"), listing %>
+          <% else %>
+            <%= link_to image_tag(listing.picture, class: "img-thumbnail"), listing %>
           <% end %>
-        </p>
-      </div><!-- end of .listing-content -->
+        </div><!-- end of .listing-image -->
+
+        <div class="listing-content mt-4">
+          <h5><%= listing.title %></h5>
+          <p><%= listing.price %></p>
+          <% if @mark == "yes" %>
+            <%= current_user.phone_number %>
+          <% end %>
+          <p>
+            <%= link_to '<span class="badge badge-info">View Listing</span>'.html_safe, listing %>
+            <% if listing.user == current_user %>
+              <%= link_to '<span class="badge badge-warning">Edit</span>'.html_safe, edit_listing_path(listing) %>
+              <%= link_to '<span class="badge badge-danger">Remove</span>'.html_safe, listing, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% end %>
+          </p>
+        </div><!-- end of .listing-content -->
+      </div><!-- end of .container -->
     </div><!-- close column -->
 
     <% if listing == @listings.last %>
