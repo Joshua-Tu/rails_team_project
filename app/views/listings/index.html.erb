@@ -1,6 +1,7 @@
-<%= link_to 'New Listing', new_listing_path %>
-
-<h2>Listings</h2>
+<h2 class="text-center mb-4">Browse Listings</h2>
+<p class="text-center">
+  <%= link_to 'Create a Listing', new_listing_path %>
+</p>
 
 <div id="listings-container" class="container">
 
@@ -32,13 +33,15 @@
         <% if @mark == "yes" %>
           <%= current_user.phone_number %>
         <% end %>
-        <p><%= link_to 'Show', listing %></p>
-        <% if listing.user == current_user %>
-          <p><%= link_to 'Edit', edit_listing_path(listing) %></p>
-          <p><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></p>
-        <% end %>
-        </div><!-- end of .listing-content -->
-      </div><!-- close column -->
+        <p>
+          <%= link_to '<span class="badge badge-info">View Listing</span>'.html_safe, listing %>
+          <% if listing.user == current_user %>
+            <%= link_to '<span class="badge badge-warning">Edit</span>'.html_safe, edit_listing_path(listing) %>
+            <%= link_to '<span class="badge badge-danger">Remove</span>'.html_safe, listing, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+        </p>
+      </div><!-- end of .listing-content -->
+    </div><!-- close column -->
 
     <% if listing == @listings.last %>
       <% remaining_columns = 3 - (@listings.count % 3) %>
