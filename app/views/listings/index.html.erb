@@ -14,7 +14,16 @@
   <tbody>
     <% @listings.each do |listing| %>
       <tr>
-        <td><%= image_tag listing.picture if listing.picture.attached? %>
+        <% if listing.picture.attached? %>
+          <td><%= link_to image_tag(listing.picture), listing %>
+        <% end %>
+
+        <%# <% image_tag picture, listing_path ) %> 
+        
+        <%# <td><%= image_tag url_for(listing.picture) if listing.picture.attached? %> 
+        <%# <% end %>
+    
+  
         <td><%= listing.title %></td>
         <td><%= listing.price %></td>
 
@@ -23,10 +32,10 @@
         <% end %>
         <td><%= link_to 'Show', listing %></td>
           <% if listing.user == current_user %>
-          <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
-          <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
+            <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           <% end %>
-        
+
       </tr>
     <% end %>
   </tbody>
