@@ -46,7 +46,7 @@ class RegistrationsController < Devise::RegistrationsController
   private 
 
   def set_user
-    @user = User.find_by(email: sign_up_params[:email])
+    @user = User.find(current_user.id)
   end
 
   def add_user_loaction
