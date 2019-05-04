@@ -24,7 +24,7 @@
   <% if @user.listings.any? %>
     <h2 class="my-4">Active Listings</h2>
     <p>User has <%= @user.listings.count %> active listings.</p>
-    
+
     <div id="user-listings">
         <%# Change this to user.listings WHERE buyer(new column) == nil %>
         <% @user.listings.each_with_index do |listing, index| %>
@@ -76,9 +76,11 @@
     </div><!-- end of #user-listings -->
   <% end # (if @user.listings.any?) %>
 
+  <%# if @user.listings.where.not(buyer: [nil, ""]).any? %>
+    <h2>test</h2>
+  <%# end %>
+
+  <%# Add to sold listings: %>
+  <%# rating, comment, buyer %>
+  <%#%>
 </div><!-- end of #user-profile -->
-
-
-<%#link_to image_tag(listing.picture), listing && listing.price,listing.created_at, soldto/boughtfrom, rating%>
-
-      
