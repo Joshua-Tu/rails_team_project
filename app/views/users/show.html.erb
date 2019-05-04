@@ -21,13 +21,13 @@
     </div>
   </div><!-- end of #user-info.row -->
 
-  <% if @user.listings.any? %>
+  <% if @active_listings.any? %>
     <h2 class="my-4">Active Listings</h2>
-    <p>User has <%= @user.listings.count %> active listings.</p>
+    <p>User has <%= @active_listings.count %> active listings.</p>
 
     <div id="user-listings">
         <%# Change this to user.listings WHERE buyer(new column) == nil %>
-        <% @user.listings.each_with_index do |listing, index| %>
+        <% @active_listings.each_with_index do |listing, index| %>
 
           <% if index == 0 # the very first listing %>
             <div class="row"><!-- open .row -->
@@ -61,8 +61,8 @@
             </div><!-- end of .listing-content -->
           </div><!-- close column -->
 
-          <% if listing == @user.listings.last %>
-            <% remaining_columns = 3 - (@user.listings.count % 3) %>
+          <% if listing == @active_listings.last %>
+            <% remaining_columns = 3 - (@active_listings.count % 3) %>
             <% if remaining_columns > 0 && remaining_columns < 3 %>
               <% remaining_columns.times do %>
                 <div class="col-sm-4"></div>
@@ -74,11 +74,11 @@
         <% end # each_with_index %>
 
     </div><!-- end of #user-listings -->
-  <% end # (if @user.listings.any?) %>
+  <% end # (if @active_listings.any?) %>
 
-  <%# if @user.listings.where.not(buyer: [nil, ""]).any? %>
+  <% if @sold_listings.any? %>
     <h2>test</h2>
-  <%# end %>
+  <% end %>
 
   <%# Add to sold listings: %>
   <%# rating, comment, buyer %>
