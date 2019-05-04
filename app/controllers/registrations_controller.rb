@@ -31,10 +31,16 @@ class RegistrationsController < Devise::RegistrationsController
     # end 
 
     super
+
+    # Custom fields are updating even when there are form errors...
+    # possible solutions:
+    # - Make sure custom fields are validated the same way devise's fields are
+    # - Respond with error page (and 'back' link) if custom fields don't pass custom validation
+    # - 
     
-    # p "************"
-    # p resource
-    # p "************"
+    p "************"
+    p resource.phone_number
+    p "************"
   end
 
   private 
