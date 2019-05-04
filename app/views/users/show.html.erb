@@ -51,7 +51,6 @@
               <h5><%= listing.title %></h5>
               <p><%= listing.price %></p>
               <p><%= listing.created_at %></p>
-              <p><%= listing.price %></p>
               <p>
                 <%= link_to '<span class="badge badge-info">View Listing</span>'.html_safe, listing %>
                 <% if listing.user == current_user %>
@@ -80,6 +79,6 @@
 </div><!-- end of #user-profile -->
 
 
-<%#link_to image_tag(listing.picture), listing && listing.price,listing.created_at, soldto/boughtfrom, rating>
+<%#link_to image_tag(listing.picture), listing && listing.price,listing.created_at, soldto/boughtfrom, rating%>
 
       
