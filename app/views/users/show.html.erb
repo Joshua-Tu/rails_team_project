@@ -1,44 +1,29 @@
-<div>
-  <% if @user.picture.attached? %>
-      <%= image_tag @user.picture %>
-  <% else %>
-      <%= image_tag "default-user-pic" %>
-  <% end %>
-</div>
+<div id="user-profile">
 
-<div>
-  User ID: <%= @user.id %>
-</div>
-
-<div>
-  User Name: <%= @user.username %> 
-</div>
-
-<div>
-  email: <%= @user.email %>
-</div>
-
-<div>
-  User Rating: *****
-</div>
-
-
-<% if user_signed_in? and @user.id == current_user.id %>
-    <div>
-      Address:
-      <%= @user.location.city %>
-      <%= @user.location.state %><br>
-      <%= @user.location.country %>
+  <div id="user-info" class="row">
+    <div class="col-sm-4">
+      <% if @user.picture.attached? %>
+        <%= image_tag @user.picture, class: "img-fluid" %>
+      <% else %>
+        <%= image_tag "default-user-pic", class: "img-fluid" %>
+      <% end %>
     </div>
-<% else %>
-  Not logged in, no location.
-<% end %>
+    <div class="col-sm-8">
+      <h3 class="mb-4"><%= @user.username %></h3>
+      <p>User Rating: N/A</p>
+      <p>Name: <%= @user.full_name %></p>
+      <p>Member Since: <%= @user.created_at %><p>
+      <p>Location: <%= @user.location.city %>, <%= @user.location.state %>, <%= @user.location.country %></p>
+      <p>Email: <%= @user.email %></p>
+      <p>User has <%= @user.listings.count %> active listings.</p>
+      <% if user_signed_in? and @user.id == current_user.id %>
+        <%= link_to "Update Account", edit_user_registration_path, class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div><!-- end of #user-info.row -->
 
-<div>
-  <button> <%= link_to "Edit", edit_user_registration_path %> <button>
-</div>
+  <h2 class="test">Transaction History</h2>
 
-<h2 class="test">Transaction History</h2>
   <div>
     <% @user.listings.each do |listing| %>
       <% if listing.picture.attached? %>
@@ -70,10 +55,10 @@
     <% end %>
   </div>
 
-  
+</div><!-- end of #user-profile -->
 
 
 
 
 
-    
+      
