@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-50.times do |i| # This should be above User generation
+10.times do |i| # This should be above User generation
   location = Location.new(
     city: Faker::Address.city,
     state: Faker::Address.state,
@@ -16,43 +16,38 @@
   puts "Created #{i + 1} locations."
 end
 
-20.times do |i|
+10.times do |i|
   user = User.new(
     full_name: Faker::Name.name_with_middle,
     email: Faker::Internet.free_email,
     # encrypted_password: "abcde",
     password: "abcde",
     phone_number: Faker::PhoneNumber.phone_number,
-    # user_avatar: Faker::Avatar.image("user_avatar", "50x50"),
     username: Faker::FunnyName.name,  
-    location: Location.find(rand(1..Location.all.length))
+    location: Location.find(rand(1..Location.all.count))
   )
   user.save!(validate: false)
   puts "Created #{i + 1} users."
 end
 
-20.times do |i|
+30.times do |i|
   item = Listing.new(
-    # t.bigint "user_id"
+  user: User.find(rand(1..User.all.length)),
   description: Faker::Food.description,
   title: Faker::Food.dish,
-  price: [5, 10, 20].sample,
-  created_at: Time.now,
-  updated_at: Time.now
-  # t.index ["user_id"], name: "index_listings_on_user_id"  
+  price: [5, 10, 20, 50].sample
   )
   item.save!(validate: false)
-  puts "Created #{i + 1} items."
+  #puts "Created #{i + 1} items."
 end
 
-10.times do |i|
+150.times do |i|
   order = ProductOrder.new(
     user: User.find(rand(1..User.all.length)), # random user
     listing: Listing.find(rand(1..Listing.all.length)), # random listing
-    price: rand(900..10000),
     date: Date.today
   )
   order.save!
-  puts "Created #{i + 1} orders."
+  #puts "Created #{i + 1} orders."
 end
 
