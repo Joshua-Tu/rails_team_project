@@ -1,9 +1,33 @@
 <div id="edit-user">
+  <h2 class="mb-4">My Account</h2>
+  
+  <div id="my-account-info" class="row mb-4">
+    <div class="col-sm-3">
+      <% if @user.picture.attached? %>
+        <div class=>
+          <%= image_tag @user.picture, class: "img-fluid" %>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-sm-9">
+      <h4 class="mb-4"><%= @user.username %></h4>
+      <p><%= @user.listings.count %> active listings.</p>
+      <p>Member Since: <%= @user.created_at %><p>
+    </div>
+  </div>
+
   <div id="update-account">
-    <h2 class="mb-4"><%= current_user.username %>'s Account</h2>
-    
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="field form-group row">
+        <div class="col-sm-3 col-form-label">
+          <%= f.label :picture %>
+        </div>
+        <div class="col-sm-9">
+          <%= f.file_field :picture, class: "form-control-file" %>
+        </div>
+      </div><!-- end of row -->
 
       <div class="field form-group row">
         <div class="col-sm-3 col-form-label">
@@ -12,7 +36,7 @@
         <div class="col-sm-9">
           <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
         </div>
-      </div>
+      </div><!-- end of row -->
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <div class="alert alert-warning">Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
