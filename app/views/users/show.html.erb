@@ -15,7 +15,6 @@
       <p>Member Since: <%= @user.created_at %><p>
       <p>Location: <%= @user.location.city %>, <%= @user.location.state %>, <%= @user.location.country %></p>
       <p>Email: <%= @user.email %></p>
-      <p>User has <%= @user.listings.count %> active listings.</p>
       <% if user_signed_in? and @user.id == current_user.id %>
         <%= link_to "Update Account", edit_user_registration_path, class: "btn btn-primary" %>
       <% end %>
@@ -24,7 +23,8 @@
 
   <% if @user.listings.any? %>
     <h2 class="my-4">Active Listings</h2>
-
+    <p>User has <%= @user.listings.count %> active listings.</p>
+    
     <div id="user-listings">
         <%# Change this to user.listings WHERE buyer(new column) == nil %>
         <% @user.listings.each_with_index do |listing, index| %>
