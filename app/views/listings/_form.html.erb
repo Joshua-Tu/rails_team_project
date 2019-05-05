@@ -44,6 +44,14 @@
       <%= label_tag :picture, "Picture" %>
     </div>
     <div class="col-sm-8">
+      <% if listing.picture.attached? %>
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <%= image_tag listing.picture, class: "img-fluid" %>
+          </div>
+          <div class="col"></div>
+        </div>
+      <% end %>
       <%= form.file_field :picture, accept: 'image/png,image/gif,image/jpeg,image/jpg', class: "form-control-file" %>
     </div>
   </div><!-- end of row -->
@@ -58,7 +66,11 @@
     </div>
   </div><!-- end of row -->
 
-  <div class="actions mb-4">
-    <%= form.submit "Submit", class: "btn btn-primary" %>
+  <div class="actions mb-4 form-row">
+    <div class="col-sm-4">
+    </div>
+    <div class="col-sm-8">
+      <%= form.submit "Submit", class: "btn btn-primary form-control-inline" %>
+    </div>
   </div>
 <% end %>
