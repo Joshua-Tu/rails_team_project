@@ -1,8 +1,9 @@
 <%= form_with(model: listing, local: true) do |form| %>
   <% if listing.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation" class="alert alert-danger">
+      <!--
       <h2><%= pluralize(listing.errors.count, "error") %> prohibited this listing from being saved:</h2>
-
+      -->
       <ul>
       <% listing.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -11,30 +12,65 @@
     </div>
   <% end %>
 
-  <div class="actions">
-    <p>
-    <%= label_tag(:title, "Listing Title: ") %>
-    <%= form.text_field(:title) %>
-    </p>
-    <p>
-      <%= label_tag(:price, "Price: ") %>
-      <%= form.number_field(:price) %>
-    </p>
-    <p>
-    <p>
-      <%= label_tag(:description, "Description: ")%>
-      <%= form.text_field(:description) %>
-    </p>
-    <p>
-      <%= label_tag(:picture, "Picture") %>
-      <%= form.file_field(:picture, accept: 'image/png,image/gif,image/jpeg,image/jpg' ) %>
-    </p>
-    <p>
-    <%= form.radio_button :show_phone, true %> Show Phone Number<br />
-    <%= form.radio_button :show_phone, false %> Hide Phone Number<br />
-    </p>
-    <p>
-      <%= form.submit %>
-    </p>
+  <div class="field form-group form-row">
+    <div class="col-sm-4 col-form-label">
+      <%= label_tag :title, "Listing Title: " %>
+    </div>
+    <div class="col-sm-8">
+      <%= form.text_field :title, class: "form-control" %>
+    </div>
+  </div><!-- end of row -->
+  
+  <div class="field form-group form-row">
+    <div class="col-sm-4 col-form-label">
+      <%= label_tag :price, "Price: " %>
+    </div>
+    <div class="col-sm-8">
+      <%= form.number_field :price, class: "form-control" %>
+    </div>
+  </div><!-- end of row -->
+  
+  <div class="field form-group form-row">
+    <div class="col-sm-4 col-form-label">
+      <%= label_tag :description, "Description: " %>
+    </div>
+    <div class="col-sm-8">
+      <%= form.text_area :description, class: "form-control" %>
+    </div>
+  </div><!-- end of row -->
+
+  <div class="field form-group form-row">
+    <div class="col-sm-4 col-form-label">
+      <%= label_tag :picture, "Picture" %>
+    </div>
+    <div class="col-sm-8">
+      <% if listing.picture.attached? %>
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <%= image_tag listing.picture, class: "img-fluid" %>
+          </div>
+          <div class="col"></div>
+        </div>
+      <% end %>
+      <%= form.file_field :picture, accept: 'image/png,image/gif,image/jpeg,image/jpg', class: "form-control-file" %>
+    </div>
+  </div><!-- end of row -->
+  
+  <div class="field form-group form-row">
+    <div class="col-sm-4 col-form-label">
+      <%= label_tag :show_phone, "Show my phone number:" %>
+    </div>
+    <div class="col-sm-8">
+      <%= form.radio_button :show_phone, true %> Yes<br />
+      <%= form.radio_button :show_phone, false %> No
+    </div>
+  </div><!-- end of row -->
+
+  <div class="actions mb-4 form-row">
+    <div class="col-sm-4">
+    </div>
+    <div class="col-sm-8">
+      <%= form.submit "Submit", class: "btn btn-primary form-control-inline" %>
+    </div>
   </div>
 <% end %>
