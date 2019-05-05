@@ -1,12 +1,30 @@
-<%# Endpoint shortcuts (for developers) %>
-<h3>Endpoints:</h3>
-<ul>
-  <li><%= link_to "Browse Listings", listings_path %></li>
-  <li><%= link_to "Create a Listing", new_listing_path %></li>
-</ul>
-
+<div id="homepage">
 <%# Highest / Lowest Price Sales %>
 <%# - Display: img, price, date, buyer and seller. %>
+
+
+  <!-- Browse Listings Enticement -->
+  <div class="row mb-4">
+    <div class="col-sm-4">
+      <%# Find a new image to put here %>
+      <%= image_tag "defaultbox.jpg", class: "img-fluid" %>
+    </div>
+    <div class="col-sm-8">
+      <h3>Buy Something Mysterious...</h3>
+      <p></p>
+    </div>
+  </div>
+
+  <!-- Create a Listing Enticement -->
+  <div class="row mb-4">
+    <div class="col-sm-4">
+      <%# Find a new image to put here %>
+      <%= image_tag "defaultbox.jpg", class: "img-fluid" %>
+    </div>
+    <div class="col-sm-8">
+      <h3>Have stuff to sell?</h3>
+    </div>
+  </div>
 
 <%# Slogan %>
 
@@ -17,3 +35,4 @@
 <%# Display: img, paragraph(s) and button/link. %>
 
 <%# Footer (put in application layout) %>
+</div>
