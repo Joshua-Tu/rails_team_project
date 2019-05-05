@@ -78,16 +78,23 @@
     
     <div class="field form-group form-row">
       <div class="col-sm-4 col-form-label">
-        <%= f.label :password_confirmation, "Confirm Password" %><br />
+        <%= f.label :password_confirmation, "Confirm Password: " %><br />
       </div>
       <div class="col-sm-8">
         <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
       </div>
     </div><!-- end of row -->
     
+    <div class="field form-group form-row">
+      <div class="col-sm-4 col-form-label">
+        <%= f.label :picture, "Profile Picture: " %>
+      </div>
+      <div class="col-sm-8">
+        <%= f.file_field :picture, accept: 'image/png,image/gif,image/jpeg,image/jpg', class: "form-control-file" %>
+      </div>
+    </div><!-- end of row -->
+    
     <div class="field">
-      <%= f.label :picture %>
-      <%= f.file_field :picture %>
     </div>
 
     <div class="actions">
