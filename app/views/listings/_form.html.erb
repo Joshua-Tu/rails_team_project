@@ -1,8 +1,9 @@
 <%= form_with(model: listing, local: true) do |form| %>
   <% if listing.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation" class="alert alert-danger">
+      <!--
       <h2><%= pluralize(listing.errors.count, "error") %> prohibited this listing from being saved:</h2>
-
+      -->
       <ul>
       <% listing.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -11,11 +12,15 @@
     </div>
   <% end %>
 
-  <div class="actions">
-    <p>
-    <%= label_tag(:title, "Listing Title: ") %>
-    <%= form.text_field(:title) %>
-    </p>
+  <div class="field form-group form-row">
+    <div class="col-sm-4 col-form-label">
+      <%= label_tag :title, "Listing Title: " %>
+    </div>
+    <div class="col-sm-8">
+      <%= form.text_field :title, class: "form-control" %>
+    </div>
+  </div><!-- end of row -->
+  
     <p>
       <%= label_tag(:price, "Price: ") %>
       <%= form.number_field(:price) %>
@@ -33,8 +38,7 @@
     <%= form.radio_button :show_phone, true %> Show Phone Number<br />
     <%= form.radio_button :show_phone, false %> Hide Phone Number<br />
     </p>
-    <p>
-      <%= form.submit %>
-    </p>
+  <div class="actions mb-4">
+    <%= form.submit "Submit", class: "btn btn-primary" %>
   </div>
 <% end %>
