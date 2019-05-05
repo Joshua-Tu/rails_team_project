@@ -1,5 +1,12 @@
-<h1>New Listing</h1>
+<div id="new-listing">
+  <h2 class="mb-4">New Listing</h2>
 
-<%= render 'form', listing: @listing %>
+  <%= render 'form', listing: @listing %>
 
-<%= link_to 'Back', listings_path %>
+  <div class="row mb-4">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-8 pl-2">
+      <%= link_to 'Go Back', listings_path, class: "btn btn-secondary mr-2" %>
+    </div>
+  </div>
+</div>

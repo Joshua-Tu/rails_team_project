@@ -4,9 +4,9 @@
   <div id="my-account-info" class="row mb-4">
     <div class="col-sm-4">
       <% if @user.picture.attached? %>
-        <div class=>
-          <%= image_tag @user.picture, class: "img-fluid" %>
-        </div>
+        <%= image_tag @user.picture, class: "img-fluid" %>
+      <% else %>
+        <%= image_tag "default-user-pic", class: "img-fluid" %>
       <% end %>
     </div>
     <div class="col-sm-8">
@@ -27,7 +27,7 @@
           <%= f.label :picture, "New Avatar" %>
         </div>
         <div class="col-sm-8">
-          <%= f.file_field :picture, class: "form-control-file" %>
+          <%= f.file_field :picture, accept: 'image/png,image/gif,image/jpeg,image/jpg', class: "form-control-file" %>
         </div>
       </div><!-- end of row -->
 
