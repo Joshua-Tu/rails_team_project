@@ -3,8 +3,8 @@
       margin-bottom: 1rem;
     }
   }
-
-// .description {
-//     flex: display;
-//     flex
-// }
+img {
+    width: 300px; /* You can set the dimensions to whatever you want */
+    height: 300px;
+    object-fit: cover;
+}
