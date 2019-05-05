@@ -93,13 +93,15 @@
         <%= f.file_field :picture, accept: 'image/png,image/gif,image/jpeg,image/jpg', class: "form-control-file" %>
       </div>
     </div><!-- end of row -->
-    
-    <div class="field">
-    </div>
 
-    <div class="actions">
-      <%= f.submit "Sign up" %>
-    </div>
+    <div class="actions form-group form-row">
+      <div class="col-sm-4">
+      </div>
+      <div class="col">
+        <%= f.submit "Sign up", class: "btn btn-primary" %>
+      </div>
+    </div><!-- end of row -->
+
   <% end %>
 
   <%= render "devise/shared/links" %>
