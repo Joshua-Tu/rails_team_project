@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   # # GET /users/1.json
   def show
     @active_listings = @user.listings.where(product_order: [nil, ""])
-    @sold_listings = @user.listings.where.not(buyer: [nil, ""])
+    @sold_listings = @user.listings.where.not(product_order: [nil, ""])
   end
   
   # # PATCH/PUT /users/1
