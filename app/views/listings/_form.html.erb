@@ -38,15 +38,26 @@
       <%= form.text_area :description, class: "form-control" %>
     </div>
   </div><!-- end of row -->
+
+  <div class="field form-group form-row">
+    <div class="col-sm-4 col-form-label">
+      <%= label_tag :picture, "Picture" %>
+    </div>
+    <div class="col-sm-8">
+      <%= form.file_field :picture, accept: 'image/png,image/gif,image/jpeg,image/jpg', class: "form-control-file" %>
+    </div>
+  </div><!-- end of row -->
   
-    <p>
-      <%= label_tag(:picture, "Picture") %>
-      <%= form.file_field(:picture, accept: 'image/png,image/gif,image/jpeg,image/jpg' ) %>
-    </p>
-    <p>
-    <%= form.radio_button :show_phone, true %> Show Phone Number<br />
-    <%= form.radio_button :show_phone, false %> Hide Phone Number<br />
-    </p>
+  <div class="field form-group form-row">
+    <div class="col-sm-4 col-form-label">
+      <%= label_tag :show_phone, "Show my phone number:" %>
+    </div>
+    <div class="col-sm-8">
+      <%= form.radio_button :show_phone, true %> Yes<br />
+      <%= form.radio_button :show_phone, false %> No
+    </div>
+  </div><!-- end of row -->
+
   <div class="actions mb-4">
     <%= form.submit "Submit", class: "btn btn-primary" %>
   </div>
