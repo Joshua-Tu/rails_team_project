@@ -21,15 +21,24 @@
     </div>
   </div><!-- end of row -->
   
-    <p>
-      <%= label_tag(:price, "Price: ") %>
-      <%= form.number_field(:price) %>
-    </p>
-    <p>
-    <p>
-      <%= label_tag(:description, "Description: ")%>
-      <%= form.text_field(:description) %>
-    </p>
+  <div class="field form-group form-row">
+    <div class="col-sm-4 col-form-label">
+      <%= label_tag :price, "Price: " %>
+    </div>
+    <div class="col-sm-8">
+      <%= form.number_field :price, class: "form-control" %>
+    </div>
+  </div><!-- end of row -->
+  
+  <div class="field form-group form-row">
+    <div class="col-sm-4 col-form-label">
+      <%= label_tag :description, "Description: " %>
+    </div>
+    <div class="col-sm-8">
+      <%= form.text_area :description, class: "form-control" %>
+    </div>
+  </div><!-- end of row -->
+  
     <p>
       <%= label_tag(:picture, "Picture") %>
       <%= form.file_field(:picture, accept: 'image/png,image/gif,image/jpeg,image/jpg' ) %>
