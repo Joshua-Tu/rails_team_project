@@ -31,7 +31,7 @@
     </div>
     <div>
         <% if user_signed_in? %>
-            <button id="stripePayment"><i class="fas fa-shopping-cart"></i>Pay $<%= number_with_precision(@listing.price, precision: 2) %></button>
+            <button id="stripePayment">Pay $<%= number_with_precision(@listing.price, precision: 2) %></button>
         <% else %>
             Log in to buy.
         <% end %>
