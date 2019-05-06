@@ -20,6 +20,13 @@ class UsersController < ApplicationController
         @active_listings.push listing
       end
     end
+
+    @purchased_listings = []
+    @purchase_orders = ProductOrder.where(user_id: @user.id)
+    @purchase_orders.each do |order|
+      @purchased_listings.push order.listing
+    end
+
   end
   
   # # PATCH/PUT /users/1
