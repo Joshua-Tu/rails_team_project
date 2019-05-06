@@ -12,5 +12,6 @@ Rails.application.routes.draw do
   # Cancel Payment Page
   get "/cancel", to: "pages#cancel", as: "cancel"
 
+  post "/payments", to: "listings#payment", as: "payment"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
