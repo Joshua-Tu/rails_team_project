@@ -9,8 +9,17 @@ class UsersController < ApplicationController
   # # GET /users/:id
   # # GET /users/1.json
   def show
-    @active_listings = @user.listings.where(product_order: [nil, ""])
-    @sold_listings = @user.listings.where.not(product_order: [nil, ""])
+    @active_listings = []
+    @sold_listings = []
+    @user.listings.each do |listing|
+      if listing.product_order
+        # Listing has a product_order
+        @sold_listings.push listing
+      else
+        # Listing doesn't have a product order
+        @active_listings.push listing
+      end
+    end
   end
   
   # # PATCH/PUT /users/1

@@ -24,12 +24,11 @@
     </div>
   </div><!-- end of #user-info.row -->
 
+  <div id="user-listings">
   <% if @active_listings.any? %>
     <h2 class="my-4">Active Listings</h2>
-    <p>User has <%= @active_listings.count %> active listings.</p>
-
-    <div id="user-listings">
-        <%# Change this to user.listings WHERE buyer(new column) == nil %>
+    <p><%= @user.username %> has <%= @active_listings.count %> active listings.</p>
+        
         <% @active_listings.each_with_index do |listing, index| %>
 
           <% if index == 0 # the very first listing %>
@@ -56,7 +55,7 @@
               <p><%= listing.created_at %></p>
               <p>
                 <%= link_to '<span class="badge badge-info">View Listing</span>'.html_safe, listing %>
-                <% if listing.user == current_user %>
+                <% if user_signed_in? && listing.user == current_user %>
                   <%= link_to '<span class="badge badge-warning">Edit</span>'.html_safe, edit_listing_path(listing) %>
                   <%= link_to '<span class="badge badge-danger">Remove</span>'.html_safe, listing, method: :delete, data: { confirm: 'Are you sure?' } %>
                 <% end %>
@@ -80,51 +79,55 @@
   <% end # (if @active_listings.any?) %>
 
   <% if @sold_listings.any? %>
-    <h2>test</h2>
-  <% end %>
+    <h2 class="my-4">Sold Listings</h2>
+    <p><%= @user.username %> has sold <%= @sold_listings.count %> listings.</p>
+    <% @sold_listings.each_with_index do |listing, index| %>
 
-
-  <%# The f %>
-  <h2>Transaction History</h2>
-  <div>
-    <% @user.listings.each do |listing| %>
-      <% if listing.picture.attached? %>
-      <div>
-        <div class="picture"><%= link_to image_tag(listing.picture), listing %></div>
-        <table>
-          <tr>
-            <td>Price:</td>
-            <td><%= listing.price %></td>
-          </tr>
-
-
-
-
-          <tr>      
-            <td>Created at:</td>
-            <td><%= listing.created_at %></td>
-          </tr>
-
-
-
-
-          <tr>
-            <td>sold to/bought from:</td>
-            <td>[Other User's name]</td>
-          <tr>
-
-
-
-
-          <tr>
-            <td>Rating: </td>
-            <td>[*****]</td>
-          <tr>
-        </table>
-      </div>
+      <% if index == 0 # the very first listing %>
+        <div class="row"><!-- open .row -->
       <% end %>
-    <% end %>
-  </div>
+
+      <%# first listing in the row (excluding the very first listing) %>
+      <% if index != 0 && (index + 1) % 3 == 1 %>
+        </div><!-- close ."row" -->
+        <div class="row"><!-- open .row -->
+      <% end %>
+
+      <div class="col-sm-4"><!-- open column -->
+        <div class="listing-image">
+          <% unless listing.picture.attached? %>
+            <%= link_to image_tag('defaultbox.jpg', class: "img-thumbnail"), listing %>
+          <% else %>
+            <%= link_to image_tag(listing.picture, class: "img-thumbnail"), listing %>
+          <% end %>
+        </div>
+        <div class="listing-content mt-4">
+          <h5><%= listing.title %></h5>
+          <p><%= listing.price %></p>
+          <p><%= listing.created_at %></p>
+          <p>
+            <%= link_to '<span class="badge badge-info">View Listing</span>'.html_safe, listing %>
+            <% if user_signed_in? && listing.user == current_user %>
+              <%= link_to '<span class="badge badge-warning">Edit</span>'.html_safe, edit_listing_path(listing) %>
+              <%= link_to '<span class="badge badge-danger">Remove</span>'.html_safe, listing, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% end %>
+          </p>
+        </div><!-- end of .listing-content -->
+      </div><!-- close column -->
+
+      <% if listing == @sold_listings.last %>
+        <% remaining_columns = 3 - (@sold_listings.count % 3) %>
+        <% if remaining_columns > 0 && remaining_columns < 3 %>
+          <% remaining_columns.times do %>
+            <div class="col-sm-4"></div>
+          <% end %>
+        <% end %>
+        </div><!-- close .row -->
+      <% end %>
+
+    <% end # each_with_index %>
+  <% end # (if @sold_listings.any?) %>
+
 
   <%# Add to sold listings: %>
   <%# rating, comment, buyer %>
