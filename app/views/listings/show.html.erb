@@ -28,7 +28,7 @@
                 <%= link_to 'Back', listings_path %>
             </p>
             <p>
-                <% if @mark == true %>
+                <% if user_signed_in? && @mark == true %>
                     <h6>Contact The Seller</h6>
                     <%= @listing.user.phone_number %>
                 <% end %>
