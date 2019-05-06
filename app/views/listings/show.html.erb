@@ -9,35 +9,36 @@
             <% else %>
                 <%= image_tag(@listing.picture) %>
             <% end %>
+        </div>
 
+        <div class="col-sm-8">
+            <%= @listing.description %> 
         </div>
-        <div class="col-sm-4">
-            <%= @listing.description %>
-        </div>
-</div>
-        <div>
-            $<%= @listing.price %>
-        </div>
-        <div>
-        <h4>Contact the Seller</h4>
+
+        <div class="row">
+            <h4>Contact the Seller</h4>
             <% if @mark == true %>
                 <%= @listing.user.phone_number %>
             <% end %>
-
         </div>
-</div>
-<div id="listings-container" class="container">
+
+    <div id="listings-container" class="container">
     <% if @listing.user == current_user %>
         <%= link_to 'Edit', edit_listing_path(@listing) %> 
     <% end %>
-
-    <%= link_to 'Back', listings_path %>
     <% if user_signed_in? %>
-        <button id="stripePayment">Pay $<%= number_with_precision(@listing.price, precision: 2) %></button>
+        <p> 
+            <button id="stripePayment"><i class="fas fa-shopping-cart"></i>
+                Buy It Now For $<%= number_with_precision(@listing.price, precision: 2) %>
+            </button>
+        </p>
     <% else %>
         Log in to buy.
     <% end %>
-</div>
+    <div>
+        <%= link_to 'Back', listings_path %>
+    </div>
+</div> 
 
 <script>
     document.getElementById("stripePayment").addEventListener("click", function() {
