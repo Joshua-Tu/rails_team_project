@@ -35,7 +35,7 @@
           <% end %>
           <p>
             <%= link_to '<span class="badge badge-info">View Listing</span>'.html_safe, listing %>
-            <% if listing.user == current_user %>
+            <% if current_user && listing.user == current_user %>
               <%= link_to '<span class="badge badge-warning">Edit</span>'.html_safe, edit_listing_path(listing) %>
               <%= link_to '<span class="badge badge-danger">Remove</span>'.html_safe, listing, method: :delete, data: { confirm: 'Are you sure?' } %>
             <% end %>
