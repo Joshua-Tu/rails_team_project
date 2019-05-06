@@ -91,10 +91,25 @@ class ListingsController < ApplicationController
   end
 
   def payment
-    payment_id =  params[:data][:object][:payment_intent]
+    payment_id = params[:data][:object][:payment_intent]
     payment = Stripe::PaymentIntent.retrieve(payment_id)
-    @buyer_id =  params[:data][:object]["client_reference_id"]
-    @product_listing_id = payment["metadata"]["listing_id"]
+    buyer_id = params[:data][:object]["client_reference_id"]
+    purchased_listing_id = payment["metadata"]["listing_id"]
+
+    @buyer = User.find(buyer_id)
+    @purchased_listing = Listing.find(purchased_listing_id)
+    
+    # Add row to product_order table
+    if @buyer and @purchased_listing
+      new_order = ProductOrder.new(user: @buyer, listing: @purchased_listing)
+      new_order.save!
+    else
+      p " ********************************************** "
+      p " ******** BUYER AND LISTING NOT TRUTHY ******** "
+      p " ********************************************** "
+    end
+    
+    p ProductOrder.last #test
   end
 
   private
