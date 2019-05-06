@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get "/", to: "pages#home", as: "root"
 
   # Successful Payment Page
-  get "/success", to: "pages#success", as: "success"
+  get "/success", to: "listings#payment", as: "success"
 
   # Cancel Payment Page
   get "/cancel", to: "pages#cancel", as: "cancel"
