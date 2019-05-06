@@ -10,8 +10,8 @@
                 <%= image_tag(@listing.picture) %>
             <% end %>
                 <p>
-        <% if @listing.user == current_user %>
-            <%= link_to 'Edit', edit_listing_path(@listing) %> 
+        <% if current_user && @listing.user == current_user %>
+            <%= link_to 'Edit your Listing', edit_listing_path(@listing) %> 
         <% end %>
     </p>
     <p>
