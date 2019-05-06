@@ -2,48 +2,47 @@
 
 <div id="listings-container" class="container">
     <h2><%= @listing.title %></h2>
-        <div class="row">
-            <div class="col-md-4">
+    <div class="row">
+        <div class="col-md-4">
             <% unless @listing.picture.attached? %>
                 <%= image_tag('defaultbox.jpg') %>
             <% else %>
                 <%= image_tag(@listing.picture) %>
             <% end %>
-                <p>
-        <% if current_user && @listing.user == current_user %>
-            <%= link_to 'Edit your Listing', edit_listing_path(@listing) %> 
-        <% end %>
-    </p>
-    <p>
-        Item Price: $<%= number_with_precision(@listing.price, precision: 2) %>
-    </p>
-    <p>
-        <% if user_signed_in? %>
-            <button id="stripePayment"></i><i class="fas fa-shopping-cart"></i> Buy It Now </button>
-        <% else %>
-            Log in to buy.
-        <% end %>
-    </p>
-    <p>
-        <%= link_to 'Back', listings_path %>
-    </p>
+            
+            <% if current_user && @listing.user == current_user %>
+                <p><%= link_to 'Edit your Listing', edit_listing_path(@listing) %></p> 
+            <% end %>
+
+            <p>
+                <% if @mark == true %>
+                    <h6>Contact The Seller</h6>
+                    <%= @listing.user.phone_number %>
+                <% end %>
+            </p>
+    
+            <p>
+                Item Price: $<%= number_with_precision(@listing.price, precision: 2) %>
+            </p>
+            <p>
+                <% if user_signed_in? %>
+                    <button id="stripePayment"></i><i class="fas fa-shopping-cart"></i> Buy It Now </button>
+                <% else %>
+                    Log in to buy.
+                <% end %>
+            </p>
+            <p>
+                <%= link_to 'Back', listings_path %>
+            </p>
         </div>
-        
+            
         <div class="col-md-8">
-            <h6><strong>Description</strong></h6>
+            <h5><strong>Description</strong></h5>
             <p>
                 <%= @listing.description %>
             </p>
         </div>
-</div>
-
-    <div>
-        <% if @mark == true %>
-            <h6>Contact the Seller</h6>
-            <%= @listing.user.phone_number %>
-        <% end %>
-    </div>
-</div>
+</div><!--closing listings-container -->
 
 
 

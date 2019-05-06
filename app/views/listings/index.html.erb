@@ -28,7 +28,12 @@
         </div><!-- end of .listing-image -->
 
         <div class="listing-content mt-4">
-          <h5><%= listing.title %></h5>
+          <h5>
+            <%= listing.title %>
+          </h5>
+          <p>
+            $<%= listing.price.to_f.round(2) %>
+          </p>
           <p>
             <%= link_to '<span class="badge badge-info">View Item</span>'.html_safe, listing %>
             <% if current_user && listing.user == current_user %>
