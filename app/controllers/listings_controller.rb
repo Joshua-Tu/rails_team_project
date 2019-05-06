@@ -1,7 +1,7 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index, :show]
-  
+  before_action :authenticate_user!, except: [:index, :show, :payment]
+  skip_before_action :verify_authenticity_token, only: [:payment]
 
   # GET /listings
   # GET /listings.json
@@ -17,6 +17,7 @@ class ListingsController < ApplicationController
 
     stripe_session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
+      client_reference_id: current_user.id,
       line_items: [{
         name: @listing.title,
         description: @listing.description,
@@ -24,6 +25,11 @@ class ListingsController < ApplicationController
         currency: 'aud',
         quantity: 1,
       }],
+      payment_intent_data: {
+        metadata: {
+            listing_id: @listing.id
+        }
+      },
       success_url: success_url,
       cancel_url: cancel_url
     )
@@ -80,6 +86,13 @@ class ListingsController < ApplicationController
       format.html { redirect_to listings_url, notice: 'Listing was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def payment
+    user_id =  params[:data][:object]["client_reference_id"]
+    payment_id =  params[:data][:object][:payment_intent]
+    payment = Stripe::PaymentIntent.retrieve(payment_id)
+    byebug
   end
 
   private
