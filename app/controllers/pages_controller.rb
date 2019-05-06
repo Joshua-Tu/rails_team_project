@@ -9,11 +9,11 @@ class PagesController < ApplicationController
         @lowest_priced_listing = Listing.find_by(price: lowest_price)
     end
 
-    def success 
-      
+    def success
+
     end
 
     def cancel
-      
+
     end
 end
