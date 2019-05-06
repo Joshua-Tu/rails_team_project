@@ -32,8 +32,11 @@
     <% end %>
 
     <%= link_to 'Back', listings_path %>
-
-    <button id="stripePayment">Pay $<%= number_with_precision(@listing.price, precision: 2) %></button>
+    <% if user_signed_in? %>
+        <button id="stripePayment">Pay $<%= number_with_precision(@listing.price, precision: 2) %></button>
+    <% else %>
+        Log in to buy.
+    <% end %>
 </div>
 
 <script>
