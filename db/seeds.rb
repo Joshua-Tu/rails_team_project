@@ -38,16 +38,16 @@ end
   price: [5, 10, 20, 50].sample
   )
   item.save!(validate: false)
-  #puts "Created #{i + 1} items."
+  puts "Created #{i + 1} items."
 end
 
-150.times do |i|
-  order = ProductOrder.new(
-    user: User.find(rand(1..User.all.length)), # random user
-    listing: Listing.find(rand(1..Listing.all.length)), # random listing
-    date: Date.today
-  )
-  order.save!
-  #puts "Created #{i + 1} orders."
-end
+# 150.times do |i|
+#   order = ProductOrder.new(
+#     user: User.find(rand(1..User.all.length)), # random user
+#     listing: Listing.find(rand(1..Listing.all.length)), # random listing
+#     date: Date.today
+#   )
+#   order.save!
+#   #puts "Created #{i + 1} orders."
+# end
 
