@@ -1,5 +1,8 @@
 <div id="successful-payment">
-
-  <p>Successful Payment</p>
+  <% if params %>
+    <p>Params exist</p>
+  <% else %>
+    <p>Params not found</p>
+  <% end %>
   
 </div>
