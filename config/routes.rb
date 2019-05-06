@@ -6,12 +6,13 @@ Rails.application.routes.draw do
   # Root/Homepage
   get "/", to: "pages#home", as: "root"
 
-  # Successful Payment Page
-  get "/success", to: "listings#payment", as: "success"
+  post "/payments", to: "listings#payment", as: "payment"
 
+  # Successful Payment Page
+  get "/success", to: "pages#success", as: "success"
   # Cancel Payment Page
   get "/cancel", to: "pages#cancel", as: "cancel"
 
-  post "/payments", to: "listings#payment", as: "payment"
+  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
