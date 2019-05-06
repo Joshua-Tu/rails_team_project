@@ -8,4 +8,12 @@ class PagesController < ApplicationController
         # Find the first listing which has the lowest price.
         @lowest_priced_listing = Listing.find_by(price: lowest_price)
     end
+
+    def success
+
+    end
+
+    def cancel
+
+    end
 end
