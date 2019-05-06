@@ -14,7 +14,8 @@ class ListingsController < ApplicationController
   def show
     # @show_phone = @mark == "yes" ? true : false
     @mark = @listing.show_phone
-
+    
+    if user_signed_in?
     stripe_session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
       client_reference_id: current_user.id,
@@ -34,6 +35,7 @@ class ListingsController < ApplicationController
       cancel_url: cancel_url
     )
     @stripe_session_id = stripe_session.id
+    end
   end
 
   # GET /listings/new
