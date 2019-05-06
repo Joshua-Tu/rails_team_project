@@ -91,7 +91,7 @@ class ListingsController < ApplicationController
   end
 
   def payment
-    payment_id =  params[:data][:object][:payment_intent]
+    payment_id = params[:data][:object][:payment_intent]
     payment = Stripe::PaymentIntent.retrieve(payment_id)
     ProductOrder.create(user_id: params[:data][:object]["client_reference_id"], listing_id: payment["metadata"]["listing_id"])
   end

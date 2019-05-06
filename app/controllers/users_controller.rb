@@ -11,15 +11,27 @@ class UsersController < ApplicationController
   def show
     @active_listings = []
     @sold_listings = []
+    # Iterate through @user.listings
     @user.listings.each do |listing|
       if listing.product_order
-        # Listing has a product_order
+        # if Listing has a product_order
+        # add it to @sold_listings.
         @sold_listings.push listing
       else
         # Listing doesn't have a product order
+        # add it to @active_listings.
         @active_listings.push listing
       end
     end
+
+    @purchased_listings = []
+    # Find product_orders where (buyer) user_id = @user.id.
+    @purchase_orders = ProductOrder.where(user_id: @user.id)
+    @purchase_orders.each do |order|
+      # Add each of them to @purchased_listings
+      @purchased_listings.push order.listing
+    end
+
   end
   
   # # PATCH/PUT /users/1
