@@ -20,15 +20,14 @@ class ListingsController < ApplicationController
       line_items: [{
         name: @listing.title,
         description: @listing.description,
-        amount: @listing.price * 100,
+        amount: @listing.price * 100, #Basic unit of stripe payment is cent.
         currency: 'aud',
         quantity: 1,
       }],
-      success_url: 'https://localhost:3000/success',
-      cancel_url: 'https://localhost:3000/cancel',
+      success_url: 'http://localhost:3000/listings/payment/success',
+      cancel_url: 'http://localhost:3000/listings/payment/cancel',
     )
-    @stripe_session_id = stripe_session.id
-        
+    @stripe_session_id = stripe_session.id  
   end
 
   # GET /listings/new
