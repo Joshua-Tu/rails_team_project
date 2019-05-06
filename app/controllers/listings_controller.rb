@@ -89,9 +89,10 @@ class ListingsController < ApplicationController
   end
 
   def payment
-    user_id =  params[:data][:object]["client_reference_id"]
     payment_id =  params[:data][:object][:payment_intent]
     payment = Stripe::PaymentIntent.retrieve(payment_id)
+    @buyer_id =  params[:data][:object]["client_reference_id"]
+    @product_listing_id = payment["metadata"]["listing_id"] 
     byebug
   end
 
