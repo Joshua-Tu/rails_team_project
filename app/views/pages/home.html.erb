@@ -5,31 +5,46 @@
 
 <%# Highest / Lowest Price Sales %>
 <%# - Display: img, price, date, buyer and seller. %>
-  <div id="extremes" class="row mb-5">
-    <div class="col-sm-6 text-center">
-      <%# Highest priced sale %>
-      <% if @highest_priced_listing.picture.attached? %>
-        <%= link_to image_tag(@highest_priced_listing.picture, class: "img-thumbnail"), listing_path(@highest_priced_listing.id) %>
-      <% else %>
-        <%= link_to image_tag('defaultbox.jpg', class: "img-thumbnail"), listing_path(@highest_priced_listing.id) %>
-      <% end %>
-      <h3 class="my-4"><%= @highest_priced_listing.title %></h3>
-      <p class="h3">
-        <del>$<%= @highest_priced_listing.price %></del>
-      </p>
-      <div class="description">
-        <small><em><%= @highest_priced_listing.description %></em></small>
-      </div>
-    </div>
-    <div class="col-sm-6">
-      <%# Lowest priced sale %>
-      
+  <div id="home" class="container">
+    <div id="extremes" class="row mb-5">
+        <div class="col-sm-6 text-center">
+          <%# Highest priced sale %>
+          <% if @highest_priced_listing.picture.attached? %>
+            <%= link_to image_tag(@highest_priced_listing.picture, class: "img-thumbnail"), listing_path(@highest_priced_listing.id) %>
+          <% else %>
+            <%= link_to image_tag('defaultbox.jpg', class: "img-thumbnail"), listing_path(@highest_priced_listing.id) %>
+          <% end %>
+          <h3 class="my-4"><%= @highest_priced_listing.title %></h3>
+          <p class="h3">
+            <del>$<%= @highest_priced_listing.price %></del>
+          </p>
+          <div class="description">
+            <small><em><%= @highest_priced_listing.description %></em></small>
+          </div>
+        </div>
+
+        <div class="col-sm-6 text-center">
+          <%# Lowest priced sale %>
+            <% if @lowest_priced_listing.picture.attached? %>
+              <%= link_to image_tag(@lowest_priced_listing.picture, class: "img-thumbnail"), listing_path(@lowest_priced_listing.id) %>
+            <% else %>
+              <%= link_to image_tag('defaultbox.jpg', class: "img-thumbnail"), listing_path(@lowest_priced_listing.id) %>
+            <% end %>
+            <h3 class="my-4"><%= @lowest_priced_listing.title %></h3>
+            <p class="h3">
+              <del>$<%= @lowest_priced_listing.price %></del>
+            </p>
+            <div class="description">
+              <small><em><%= @lowest_priced_listing.description %></em></small>
+            </div>
+        </div>
     </div>
   </div>
 
+
   <!-- Browse Listings Enticement -->
   <div id="browse-enticement" class="row mb-4">
-    <div class="col-sm-4">
+    <div class="col-sm-4 text-center">
       <%# Find a new image to put here %>
       <%= image_tag "defaultbox.jpg", class: "img-fluid mb-2" %>
     </div>
@@ -42,11 +57,11 @@
         <%= link_to "Browse Listings", listings_path, class: "btn btn-primary" %>
       </p>
     </div>
-  </div>
+  </div><!-- closing the container tag -->
 
   <!-- Create Listing Enticement -->
   <div id="sell-enticement" class="row mb-4">
-    <div class="col-sm-4">
+    <div class="col-sm-4 text-center">
       <%# Find a new image to put here %>
       <%= image_tag "defaultbox.jpg", class: "img-fluid mb-2" %>
     </div>
