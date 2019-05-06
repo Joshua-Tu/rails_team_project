@@ -32,4 +32,21 @@
     <% end %>
 
     <%= link_to 'Back', listings_path %>
+
+    <button id="stripePayment">Pay $<%= number_with_precision(@listing.price, precision: 2) %></button>
 </div>
+
+<script>
+    document.getElementById("stripePayment").addEventListener("click", function() {
+      
+      var stripe = Stripe('<%= Rails.application.credentials.dig(:stripe, :public) %>');
+
+      stripe.redirectToCheckout({
+        sessionId: '<%= @stripe_session_id %>',
+      }).then(function (result) {
+        // If `redirectToCheckout` fails due to a browser or network
+        // error, display the localized error message to your customer
+        // using `result.error.message`.
+      });
+    });
+</script>

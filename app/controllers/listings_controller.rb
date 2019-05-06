@@ -15,6 +15,20 @@ class ListingsController < ApplicationController
     # @show_phone = @mark == "yes" ? true : false
     @mark = @listing.show_phone
 
+    stripe_session = Stripe::Checkout::Session.create(
+      payment_method_types: ['card'],
+      line_items: [{
+        name: @listing.title,
+        description: @listing.description,
+        amount: @listing.price * 100,
+        currency: 'aud',
+        quantity: 1,
+      }],
+      success_url: 'https://localhost:3000/success',
+      cancel_url: 'https://localhost:3000/cancel',
+    )
+    @stripe_session_id = stripe_session.id
+        
   end
 
   # GET /listings/new
