@@ -1,13 +1,7 @@
 <div id="successful-payment">
-  <% if @buyer_id %>
-    <p><%= @buyer_id %></p>
-  <% else %>
-    <p>Buyer not found</p>
-  <% end %>
+    <p><%= @buyer.id %></p>
+    <p><%= @buyer.name %></p>
 
-  <% if @product_listing_id %>
-    <p><%= @product_listing_id %></p>
-  <% else %>
-    <p>listing not found</p>
-  <% end %>  
+    <p><%= @purchased_listing.id %></p>
+    <p><%= @purchased_listing.name %></p>
 </div>
