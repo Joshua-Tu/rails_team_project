@@ -16,29 +16,32 @@
 </div>
 
         <div>
-        <h4>Contact the Seller</h4>
             <% if @mark == true %>
+                <h6>Contact the Seller</h6>
                 <%= @listing.user.phone_number %>
             <% end %>
 
         </div>
 </div>
 <div id="listings-container" class="container">
-    <div>
+    <p>
         <% if @listing.user == current_user %>
             <%= link_to 'Edit', edit_listing_path(@listing) %> 
         <% end %>
-    </div>
-    <div>
+    </p>
+    <p>
+        Item Price: $<%= number_with_precision(@listing.price, precision: 2) %>
+    </p>
+    <p>
         <% if user_signed_in? %>
-            <button id="stripePayment">Pay $<%= number_with_precision(@listing.price, precision: 2) %></button>
+            <button id="stripePayment"></i><i class="fas fa-shopping-cart"></i> Buy It Now </button>
         <% else %>
             Log in to buy.
         <% end %>
-    </div>
-    <div>
+    </p>
+    <p>
         <%= link_to 'Back', listings_path %>
-    </div>
+    </p>
 </div>
 
 <script>
