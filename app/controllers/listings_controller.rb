@@ -93,6 +93,8 @@ class ListingsController < ApplicationController
     payment = Stripe::PaymentIntent.retrieve(payment_id)
     @buyer_id = params[:data][:object]["client_reference_id"]
     @product_listing_id = payment["metadata"]["listing_id"]
+    # Add a row to ProductOrders
+    #new_order = ProductOrder.new(user: "",  )
   end
 
   private

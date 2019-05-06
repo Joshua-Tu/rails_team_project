@@ -1,8 +1,13 @@
 <div id="successful-payment">
-  <% if params %>
-    <p>Params exist</p>
+  <% if @buyer_id %>
+    <p><%= @buyer_id %></p>
   <% else %>
-    <p>Params not found</p>
+    <p>Buyer not found</p>
   <% end %>
-  
+
+  <% if @product_listing_id %>
+    <p><%= @product_listing_id %></p>
+  <% else %>
+    <p>listing not found</p>
+  <% end %>  
 </div>
