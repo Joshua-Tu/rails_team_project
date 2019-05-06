@@ -24,6 +24,12 @@
     </div>
   </div><!-- end of #user-info.row -->
 
+  <div>
+    <% @purchased_listings.each do |listing| %>
+      <p><%= listing.title %></p>
+    <% end %>
+  </div>
+
   <div id="user-listings">
   <% if @active_listings.any? %>
     <h2 class="my-4">Active Listings</h2>
