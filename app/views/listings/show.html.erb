@@ -25,10 +25,14 @@
                 Item Price: $<%= number_with_precision(@listing.price, precision: 2) %>
             </p>
             <p>
-                <% if user_signed_in? %>
-                    <button id="stripePayment"></i><i class="fas fa-shopping-cart"></i> Buy It Now </button>
+                <% unless @listing.product_order %>
+                    <% if user_signed_in? %>
+                        <button id="stripePayment"><i class="fas fa-shopping-cart"></i> Buy It Now </button>
+                    <% else %>
+                        Log in to buy.
+                    <% end %>
                 <% else %>
-                    Log in to buy.
+                    <span class="badge badge-danger">SOLD</span>
                 <% end %>
             </p>
             <p>
