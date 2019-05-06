@@ -9,29 +9,28 @@
             <% else %>
                 <%= image_tag(@listing.picture) %>
             <% end %>
-
         </div>
+
         <div class="col-sm-8">
-            <%= @listing.description %>
+            <%= @listing.description %> 
         </div>
 
-        </div>
-        <div>
-        <h4>Contact the Seller</h4>
+        <div class="row">
+            <h4>Contact the Seller</h4>
             <% if @mark == true %>
                 <%= @listing.user.phone_number %>
             <% end %>
-
         </div>
-</div>
-<div id="listings-container" class="container">
+
+    <div id="listings-container" class="container">
     <% if @listing.user == current_user %>
         <%= link_to 'Edit', edit_listing_path(@listing) %> 
     <% end %>
     <% if user_signed_in? %>
         <p> 
-            <span class="glyphicon glyphicon-shopping-cart"></span>
-            <button id="stripePayment">Pay $<%= number_with_precision(@listing.price, precision: 2) %></button>
+            <button id="stripePayment"><i class="fas fa-shopping-cart"></i>
+                Buy It Now For $<%= number_with_precision(@listing.price, precision: 2) %>
+            </button>
         </p>
     <% else %>
         Log in to buy.
