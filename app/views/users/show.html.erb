@@ -83,6 +83,49 @@
     <h2>test</h2>
   <% end %>
 
+
+  <%# The f %>
+  <h2>Transaction History</h2>
+  <div>
+    <% @user.listings.each do |listing| %>
+      <% if listing.picture.attached? %>
+      <div>
+        <div class="picture"><%= link_to image_tag(listing.picture), listing %></div>
+        <table>
+          <tr>
+            <td>Price:</td>
+            <td><%= listing.price %></td>
+          </tr>
+
+
+
+
+          <tr>      
+            <td>Created at:</td>
+            <td><%= listing.created_at %></td>
+          </tr>
+
+
+
+
+          <tr>
+            <td>sold to/bought from:</td>
+            <td>[Other User's name]</td>
+          <tr>
+
+
+
+
+          <tr>
+            <td>Rating: </td>
+            <td>[*****]</td>
+          <tr>
+        </table>
+      </div>
+      <% end %>
+    <% end %>
+  </div>
+
   <%# Add to sold listings: %>
   <%# rating, comment, buyer %>
   <%#%>
