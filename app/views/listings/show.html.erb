@@ -3,7 +3,7 @@
 <div id="listings-container" class="container">
     <h2><%= @listing.title %></h2>
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4 text-center">
             <% unless @listing.picture.attached? %>
                 <%= image_tag('defaultbox.jpg') %>
             <% else %>
