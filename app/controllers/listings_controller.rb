@@ -24,11 +24,10 @@ class ListingsController < ApplicationController
         currency: 'aud',
         quantity: 1,
       }],
-      success_url: 'https://localhost:3000/success',
-      cancel_url: 'https://localhost:3000/cancel',
+      success_url: success_url,
+      cancel_url: cancel_url
     )
     @stripe_session_id = stripe_session.id
-        
   end
 
   # GET /listings/new
