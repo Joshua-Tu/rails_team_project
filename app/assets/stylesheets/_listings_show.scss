@@ -1,6 +1,11 @@
 #listings-container {
     .row {
       margin-bottom: 1rem;
+      padding-bottom: 10px;
+    }
+    h2 {
+      padding-bottom: 50px;
+      padding-top: 50px;
     }
   }
 img {
@@ -8,3 +13,5 @@ img {
     height: 300px;
     object-fit: cover;
 }
+
+
