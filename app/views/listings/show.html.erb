@@ -1,6 +1,8 @@
-<div id="listings-container" class="container">
-    <h2><%= @listing.title %></h2>
-    <div class="row">
+<div id="listings-page">
+    <h2 class="py-4 text-center"><%= @listing.title %></h2>
+
+    <div class="row mb-4">
+
         <div class="col-md-4 text-center">
             <% unless @listing.picture.attached? %>
                 <%= image_tag('defaultbox.jpg') %>
@@ -11,11 +13,9 @@
             <% if current_user && @listing.user == current_user %>
                 <p><%= link_to 'Edit your Listing', edit_listing_path(@listing) %></p> 
             <% end %>
-    
-            <p>
-                Item Price: $<%= number_with_precision(@listing.price, precision: 2) %>
-            </p>
+            
             <div id="listing-data">
+                <p>Item Price: $<%= number_with_precision(@listing.price, precision: 2) %></p>
                 <% unless @listing.product_order %>
                     <% if user_signed_in? %>
                         <p><button id="stripePayment"><i class="fas fa-shopping-cart"></i>Buy It Now</button></p>
@@ -47,26 +47,25 @@
                     <% end %>
                 <% end %>
             </div><!-- end of #listing-data -->
-            <p>
-                <%= link_to 'Back', listings_path %>
-            </p>
+            <p><%= link_to 'Back', listings_path %></p>
             <p>
                 <% if user_signed_in? && @mark == true %>
                     <h6>Contact The Seller</h6>
                     <%= @listing.user.phone_number %>
                 <% end %>
             </p>
-        </div>
+        </div><!-- end of column -->
             
         <div class="col-md-8">
             <h5><strong>Description</strong></h5>
             <p>
                 <%= @listing.description %>
             </p>
-        </div>
-</div><!--closing listings-container -->
+        </div><!-- end of column -->
+        
+    </div><!-- end of row -->
 
-
+</div><!-- end of #listings-page -->
 
 <script>
     document.getElementById("stripePayment").addEventListener("click", function() {
