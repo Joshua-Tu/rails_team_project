@@ -19,7 +19,7 @@
             <p>
                 Item Price: $<%= number_with_precision(@listing.price, precision: 2) %>
             </p>
-            <p>
+            <p><!-- stripe payment won't show up if they aren't signed in -->
                 <% unless @listing.product_order %>
                     <% if user_signed_in? %>
                         <button id="stripePayment"><i class="fas fa-shopping-cart"></i> Buy It Now </button>
@@ -55,14 +55,14 @@
                     <%= @listing.user.phone_number %>
                 <% end %>
             </p>
-        </div>
+        </div><!-- close coloumn -->
             
         <div class="col-md-8">
             <h5><strong>Description</strong></h5>
             <p>
                 <%= @listing.description %>
             </p>
-        </div>
+        </div><!-- closing column -->
 </div><!--closing listings-container -->
 
 
