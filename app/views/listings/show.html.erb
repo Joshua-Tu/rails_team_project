@@ -4,9 +4,6 @@
     <h2><%= @listing.title %></h2>
     <div class="row">
         <div class="col-md-4 text-center">
-            <p> 
-                <%= link_to @listing.user.username, user_path(@listing.user.id), :class => "btn btn-primary" %>
-            </p>
             <% unless @listing.picture.attached? %>
                 <%= image_tag('defaultbox.jpg') %>
             <% else %>
@@ -16,6 +13,9 @@
             <% if current_user && @listing.user == current_user %>
             <p><%= link_to 'Edit your Listing', edit_listing_path(@listing) %></p> 
             <% end %>
+            <p> 
+                <%= link_to @listing.user.username, user_path(@listing.user.id), :class => "btn btn-info" %>
+            </p>
             <p>
                 Item Price: $<%= number_with_precision(@listing.price, precision: 2) %>
             </p>
