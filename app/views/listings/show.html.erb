@@ -17,7 +17,7 @@
             <div id="listing-data">
                 <p><%= link_to @listing.user.username, user_path(@listing.user.id), :class => "btn btn-info" %></p>
                 <p>Item Price: $<%= number_with_precision(@listing.price, precision: 2) %></p>
-
+                <!-- stripe payment won't show up if they aren't signed in -->
                 <% unless @listing.product_order %>
                     <% if user_signed_in? %>
                         <p><button id="stripePayment"><i class="fas fa-shopping-cart"></i>Buy It Now</button></p>
