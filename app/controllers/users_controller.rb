@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update]
+  before_action :set_user, :set_users, :set_listings only: [:index, :show, :edit, :update]
   before_action :set_active_listings, :set_sold_listings, :set_purchased_listings, only: [:show]
   before_action :authenticate_user!
 
   def index
-    @users = User.all
+
   end
  
   # # GET /users/:id
@@ -34,6 +34,14 @@ class UsersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
+    end
+
+    def set_users
+      @users = User.all
+    end
+
+    def set_listings
+      @listings = Listing.all
     end
  
     # Never trust parameters from the scary internet, only allow the white list through.
