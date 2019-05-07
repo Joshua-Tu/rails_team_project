@@ -9,7 +9,9 @@
             <% end %>
             
             <% if current_user && @listing.user == current_user %>
-            <p><%= link_to 'Edit your Listing', edit_listing_path(@listing) %></p> 
+                <p>
+                    <%= link_to 'Edit your Listing', edit_listing_path(@listing) %>
+                </p> 
             <% end %>
             <p> 
                 <%= link_to @listing.user.username, user_path(@listing.user.id), :class => "btn btn-info" %>
@@ -22,7 +24,7 @@
                     <% if user_signed_in? %>
                         <button id="stripePayment"><i class="fas fa-shopping-cart"></i> Buy It Now </button>
                     <% else %>
-                        <%= link_to 'Log in to buy', new_user_session_path %>
+                        <%= link_to 'Log in to buy', new_user_session_path  %>
                         
                     <% end %>
                 <% else %>
