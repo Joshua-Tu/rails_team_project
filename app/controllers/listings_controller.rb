@@ -51,8 +51,6 @@ class ListingsController < ApplicationController
   def create
 
     @listing = current_user.listings.build(listing_params)
-    # @mark = params[:listing][:show_phone]
-
 
     respond_to do |format|
       if @listing.save
