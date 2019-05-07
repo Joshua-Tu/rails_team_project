@@ -20,7 +20,8 @@
                     <% if user_signed_in? %>
                         <button id="stripePayment"><i class="fas fa-shopping-cart"></i> Buy It Now </button>
                     <% else %>
-                        Log in to buy.
+                        You must <%= link_to "Sign Up", new_user_registration_path  %> or 
+                        <%= link_to "Sign In", new_user_session_path %> to make a purchase.
                     <% end %>
                 <% else %>
                     <% if @listing.product_order.user == current_user %>
