@@ -15,11 +15,13 @@
       <div class="container">
         <!-- Navbar brand -->
         <%= link_to "Mystery Box Market", root_path, class: "navbar-brand" %>
-        <% if user_signed_in? %>
-          <h5>Welcome <%= current_user.username %>!</h5>
-        <% else %>
-          <h5>Welcome! </h5>
-        <% end %>
+        <div class="welcome-user">
+          <% if user_signed_in? %>
+            <h5>Welcome <%= current_user.username %>!</h5>
+          <% else %>
+            <h5>Welcome! </h5>
+          <% end %>
+        </div>
         <!-- Collapse button -->
         <button class="navbar-toggler animated-button" type="button" data-toggle="collapse" data-target="#navbarSupportedContent20"
           aria-controls="navbarSupportedContent20" aria-expanded="false" aria-label="Toggle navigation">
