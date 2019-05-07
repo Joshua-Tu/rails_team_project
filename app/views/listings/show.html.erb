@@ -24,9 +24,14 @@
                     <% end %>
                 <% else %>
                     <% if @listing.product_order.user == current_user %>
-                      <span class="badge badge-success">You Purchased This!</span><br />
+                        <span class="badge badge-success">You Purchased This!</span><br />
+                        <%= form_tag(listing_path(@listing.id), method: "put") do %>
+                            <%= label_tag(:rating, "Leave a Rating: ") %><br/>
+                            <%= number_field_tag(:rating, nil, within: 1..5) %> / 5<br/>
+                            <%= submit_tag("Submit", class: "btn btn-primary mt-2") %>
+                        <% end %>
                     <% else %>
-                      <span class="badge badge-danger">Item Sold!</span><br />
+                        <span class="badge badge-danger">Item Sold!</span><br />
                     <% end %>
                 <% end %>
             </p>
