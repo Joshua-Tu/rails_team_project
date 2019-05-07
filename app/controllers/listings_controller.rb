@@ -12,30 +12,30 @@ class ListingsController < ApplicationController
   # GET /listings/1
   # GET /listings/1.json
   def show
-    # @show_phone = @mark == "yes" ? true : false
     @mark = @listing.show_phone
     if user_signed_in?
-      stripe_session = Stripe::Checkout::Session.create(
-        payment_method_types: ['card'],
-        client_reference_id: current_user.id,
-        line_items: [{
-          name: @listing.title,
-          description: @listing.description,
-          amount: @listing.price * 100, #Basic unit of stripe payment is cent.
-          currency: 'aud',
-          quantity: 1,
-        }],
-        payment_intent_data: {
-          metadata: {
-              listing_id: @listing.id
-          }
-        },
-        success_url: success_url,
-        cancel_url: cancel_url
-      )
-      @stripe_session_id = stripe_session.id
+      unless @listing.product_order
+        stripe_session = Stripe::Checkout::Session.create(
+          payment_method_types: ['card'],
+          client_reference_id: current_user.id,
+          line_items: [{
+            name: @listing.title,
+            description: @listing.description,
+            amount: @listing.price * 100, #Basic unit of stripe payment is cent.
+            currency: 'aud',
+            quantity: 1,
+          }],
+          payment_intent_data: {
+            metadata: {
+                listing_id: @listing.id
+            }
+          },
+          success_url: success_url,
+          cancel_url: cancel_url
+        )
+        @stripe_session_id = stripe_session.id
+      end
     end
-
   end
 
   # GET /listings/new
@@ -104,7 +104,7 @@ class ListingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
-      params.require(:listing).permit(:title, :price, :description, :phone_number, :picture, :show_phone)
+      params.require(:listing).permit(:title, :price, :description, :phone_number, :picture, :show_phone, :rating)
     end
 
 end
