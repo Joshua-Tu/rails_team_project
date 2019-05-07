@@ -28,9 +28,9 @@
                         <% unless @listing.rating.present? %>
                             <p><span class="badge badge-success">You Purchased This!</span></p>
                             <%= form_for :listing, method: "put" do |f| %>
-                                <%= label_tag(:rating, "Leave a Rating: ") %><br/>
-                                <%= f.number_field(:rating, within: 1..5) %> / 5<br/>
-                                <%= f.submit("Submit", class: "btn btn-primary mt-2") %>
+                                <%= label_tag(:rating, "Leave a Rating: ") %>
+                                <%= f.number_field(:rating, within: 1..5) %> / 5
+                                <%= f.submit("Submit", class: "btn btn-primary btn-xs") %>
                             <% end %>
                         <% else %>
                             <span class="badge badge-success">
@@ -62,7 +62,7 @@
                 <%= @listing.description %>
             </p>
         </div><!-- end of column -->
-        
+
     </div><!-- end of row -->
 
 </div><!-- end of #listings-page -->
