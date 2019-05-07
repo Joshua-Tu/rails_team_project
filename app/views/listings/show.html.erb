@@ -23,7 +23,11 @@
                         Log in to buy.
                     <% end %>
                 <% else %>
-                    <span class="badge badge-danger">SOLD</span>
+                    <% if @listing.product_order.user == current_user %>
+                      <span class="badge badge-success">You Purchased This!</span><br />
+                    <% else %>
+                      <span class="badge badge-danger">Item Sold!</span><br />
+                    <% end %>
                 <% end %>
             </p>
             <p>
