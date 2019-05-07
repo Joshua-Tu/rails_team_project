@@ -11,6 +11,7 @@ class PagesController < ApplicationController
     
     def success
         # Payment/Successful Order logic is in listings#payment
+        @purchased_listing_path_id = User.find(current_user.id).product_orders.last.listing_id
     end
     
     def cancel
