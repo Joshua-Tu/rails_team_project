@@ -2,7 +2,6 @@ class ListingsController < ApplicationController
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show, :payment]
   skip_before_action :verify_authenticity_token, only: [:payment]
-  after_action 
   # GET /listings
   # GET /listings.json
   def index
@@ -52,8 +51,6 @@ class ListingsController < ApplicationController
   def create
 
     @listing = current_user.listings.build(listing_params)
-    # @mark = params[:listing][:show_phone]
-
 
     respond_to do |format|
       if @listing.save

@@ -1,71 +1,75 @@
-<div id="listings-container" class="container">
-    <h2><%= @listing.title %></h2>
-    <div class="row">
+<div id="listings-page">
+    <h2 class="py-4 text-center"><%= @listing.title %></h2>
+
+    <div class="row mb-4">
+
         <div class="col-md-4 text-center">
             <% unless @listing.picture.attached? %>
-                <%= image_tag('defaultbox.jpg') %>
+                <p><%= image_tag('defaultbox.jpg') %></p>
             <% else %>
-                <%= image_tag(@listing.picture) %>
+                <p><%= image_tag(@listing.picture) %></p>
             <% end %>
             
             <% if current_user && @listing.user == current_user %>
-                <p>
-                    <%= link_to 'Edit your Listing', edit_listing_path(@listing) %>
-                </p> 
+              <p><%= link_to 'Edit your Listing', edit_listing_path(@listing) %></p> 
             <% end %>
-            <p> 
-                <%= link_to @listing.user.username, user_path(@listing.user.id), :class => "btn btn-info" %>
-            </p>
-            <p>
-                Item Price: $<%= number_with_precision(@listing.price, precision: 2) %>
-            </p>
-            <p><!-- stripe payment won't show up if they aren't signed in -->
+          
+            <div id="listing-data">
+                <p><%= link_to @listing.user.username, user_path(@listing.user.id), :class => "btn btn-info" %></p>
+                <p>Item Price: $<%= number_with_precision(@listing.price, precision: 2) %></p>
+                <!-- stripe payment won't show up if they aren't signed in -->
                 <% unless @listing.product_order %>
                     <% if user_signed_in? %>
-                        <button id="stripePayment"><i class="fas fa-shopping-cart"></i> Buy It Now </button>
+                        <p><button id="stripePayment"><i class="fas fa-shopping-cart"></i>Buy It Now</button></p>
                     <% else %>
-                        <%= link_to 'Log in to buy', new_user_session_path  %>
-                        
+                        <p>You must <%= link_to "Sign Up", new_user_registration_path  %> or 
+                        <%= link_to "Sign In", new_user_session_path %> to make a purchase.</p>
                     <% end %>
                 <% else %>
                     <% if @listing.product_order.user == current_user %>
                         <% unless @listing.rating.present? %>
-                            <span class="badge badge-success">You Purchased This!</span><br />
+                            <p><span class="badge badge-success">You Purchased This!</span></p>
                             <%= form_for :listing, method: "put" do |f| %>
-                                <%= label_tag(:rating, "Leave a Rating: ") %><br/>
-                                <%= f.number_field(:rating, within: 1..5) %> / 5<br/>
-                                <%= f.submit("Submit", class: "btn btn-primary mt-2") %>
+                                <%= label_tag(:rating, "Leave a Rating: ") %>
+                                <%= f.number_field(:rating, within: 1..5) %> / 5<br />
+                                <%= f.submit("Submit", class: "btn btn-primary btn-xs") %>
                             <% end %>
                         <% else %>
-                            <span class="badge badge-success">
-                                You left a rating: <%= @listing.rating %> / 5
-                            </span>
+                            <p>
+                                <span class="badge badge-success">
+                                    You Rated: <%= @listing.rating %> / 5
+                                </span>
+                            </p>
                         <% end %>
                     <% else %>
-                        <span class="badge badge-danger">Item Sold!</span><br />
+                        <span class="badge badge-danger">SOLD</span> to
+                        <%= @listing.product_order.user.username %>
+                        <% if @listing.rating.present? %>
+                            <br />
+                            Rating: <span class="badge badge-primary"><%= @listing.rating %> / 5</span>
+                        <% end %>
                     <% end %>
                 <% end %>
-            </p>
-            <p>
-                <%= link_to 'Back', listings_path %>
-            </p>
+            </div><!-- end of #listing-data -->
             <p>
                 <% if user_signed_in? && @mark == true %>
                     <h6>Contact The Seller</h6>
                     <%= @listing.user.phone_number %>
                 <% end %>
             </p>
-        </div><!-- close coloumn -->
+        </div><!-- end of column -->
             
         <div class="col-md-8">
-            <h5><strong>Description</strong></h5>
+            <h5 class="text-center"><strong>Description</strong></h5>
             <p>
                 <%= @listing.description %>
             </p>
-        </div><!-- closing column -->
-</div><!--closing listings-container -->
+            <p class="text-right"><%= link_to 'Back', listings_path, class: "btn btn-secondary mt-2" %></p>
+        </div><!-- end of column -->
 
+    </div><!-- end of row -->
 
+</div><!-- end of #listings-page -->
 
 <script>
     document.getElementById("stripePayment").addEventListener("click", function() {
