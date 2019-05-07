@@ -36,9 +36,7 @@ end
   user: User.find(rand(1..User.all.length)),
   description: Faker::Food.description,
   title: Faker::Food.dish,
-  price: [5, 10, 20, 50].sample,
-  rating: 5
-
+  price: [5, 10, 20, 50].sample
   )
   item.save!(validate: false)
   puts "Created #{i + 1} items."
