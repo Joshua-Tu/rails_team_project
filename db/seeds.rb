@@ -23,8 +23,9 @@ end
     # encrypted_password: "abcde",
     password: "abcde",
     phone_number: Faker::PhoneNumber.phone_number,
-    username: Faker::FunnyName.name,  
-    location: Location.find(rand(1..Location.all.count))
+    username: Faker::FunnyName.name,
+    rating: 5,  
+    location: Location.find(rand(1..Location.all.count)) #seems this line doesn't work
   )
   user.save!(validate: false)
   puts "Created #{i + 1} users."
