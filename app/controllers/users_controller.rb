@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, :set_users, :set_listings only: [:index, :show, :edit, :update]
+  before_action :set_user, :set_users, :set_listings, only: [:index, :show, :edit, :update]
   before_action :set_active_listings, :set_sold_listings, :set_purchased_listings, only: [:show]
   before_action :authenticate_user!
 
