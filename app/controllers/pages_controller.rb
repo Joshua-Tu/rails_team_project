@@ -2,13 +2,26 @@ class PagesController < ApplicationController
     before_action :purchased_listing_id, only:[ :success, :rating]
 
     def home
-        highest_price = Listing.maximum("price")
-        # Find the first listing which has the highest price.
-        @highest_priced_listing = Listing.find_by(price: highest_price)
+        # Get an array of listings that have been sold/ordered
+        sold_listings = []
+        product_orders = ProductOrder.all
+        product_orders.each do |product_order|
+            sold_listings.push product_order.listing
+        end
+
+        # Get sold item with the highest price
+        @highest_priced_sale = nil
+        highest_price = 0
+        sold_listings.each do |listing|
+            if listing.price > highest_price
+                highest_price = listing.price
+                @highest_priced_sale = listing
+            end
+        end
       
+        # Get sold item with the lowest price
         lowest_price = Listing.minimum("price")
-        # Find the first listing which has the lowest price.
-        @lowest_priced_listing = Listing.find_by(price: lowest_price)
+        @lowest_priced_sale = Listing.find_by(price: lowest_price)
     end
     
     def success
