@@ -8,7 +8,7 @@
         <%= f.label :email, "Email: " %>
       </div>
       <div class="col-sm-8">
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", data: {cy: "email"} %>
       </div>
     </div><!-- end of row -->
 
@@ -17,7 +17,7 @@
         <%= f.label :password, "Password: " %>
       </div>
       <div class="col-sm-8">
-        <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+        <%= f.password_field :password, autocomplete: "current-password", class: "form-control", data: {cy: "password"} %>
       </div>
     </div><!-- end of row -->
 
@@ -35,7 +35,7 @@
     <div class="actions form-group form-row">
       <div class="col-sm-4"></div>
       <div class="col-sm-8">
-        <%= f.submit "Log in", class: "btn btn-primary" %>
+        <%= f.submit "Log in", class: "btn btn-primary", data: {cy: "submit"}%>
       </div>
     </div>
 
