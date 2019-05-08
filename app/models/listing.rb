@@ -6,6 +6,4 @@ class Listing < ApplicationRecord
   validates :description, presence: true, length: { minimum: 10, maximum: 1000 }
   validates :price, presence: true, numericality: { greater_than: 5,  only_integer: true }
   validates :rating, numericality: { only_integer: true, allow_blank: true }
-
-  # validate :phone_number
 end
