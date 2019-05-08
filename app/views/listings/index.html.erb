@@ -35,7 +35,7 @@
             $<%= listing.price.to_f.round(2) %>
           </p>
           <p>
-            <%= link_to '<span class="badge badge-info">View Item</span>'.html_safe, listing %>
+            <%= link_to 'View Listing', listing, class: "btn btn-primary btn-xs" %>
             <% if current_user && listing.user == current_user %>
               <%= link_to '<span class="badge badge-warning">Edit</span>'.html_safe, edit_listing_path(listing) %>
               <%= link_to '<span class="badge badge-danger">Remove</span>'.html_safe, listing, method: :delete, data: { confirm: 'Are you sure?' } %>
