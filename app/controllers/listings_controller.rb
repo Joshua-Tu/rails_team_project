@@ -51,7 +51,8 @@ class ListingsController < ApplicationController
   def create
 
     @listing = current_user.listings.build(listing_params)
-
+    # The default value of the rating of the listing when created is 5
+    @listing.rating = 5 
     respond_to do |format|
       if @listing.save
         format.html { redirect_to @listing, notice: 'Listing was successfully created.' }

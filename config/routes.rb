@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   # Cancel Payment Page
   get "/cancel", to: "pages#cancel", as: "cancel"
 
+  get "/listings/:id/rating", to: "pages#rating", as: "rating"
   
+  post "/listings/:id/rating", to: "pages#set_rating"
+  # post "/listings/:id/rating", to: "pages"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
