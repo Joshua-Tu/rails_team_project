@@ -7,7 +7,7 @@
       <div class="col-sm-6 text-center">
         <%# Highest priced sale %>
         <% if @highest_priced_sale.picture.attached? %>
-          <%= link_to image_tag(@highest_priced_sale.picture, class: "img-thumbnail"), sale_path(@highest_priced_sale.id) %>
+          <%= link_to image_tag(@highest_priced_sale.picture, class: "img-thumbnail"), listing_path(@highest_priced_sale.id) %>
         <% else %>
           <%= link_to image_tag('defaultbox.jpg', class: "img-thumbnail"), listing_path(@highest_priced_sale.id) %>
         <% end %>
