@@ -155,6 +155,11 @@
         <div class="listing-content mt-4">
           <h5><%= listing.title %></h5>
           <p>$ <%= listing.price %></p>
+          <% if listing.product_order.user == current_user %>
+            <% if listing.rating.present? %>
+              <p><span class="badge badge-success">You Rated: <%= @listing.rating %> / 5</span></p>
+            <% end %>
+          <% end %>
           <p><%= listing.created_at %></p>
           <p>
             <%= link_to '<span class="badge badge-info">View Listing</span>'.html_safe, listing %>
@@ -177,6 +182,6 @@
       <% end %>
 
     <% end # each_with_index %>
-  </div>
+  </div><!-- end of #user-purchases -->
   <% end %>
 </div><!-- end of #user-profile -->
