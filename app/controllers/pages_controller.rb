@@ -9,7 +9,7 @@ class PagesController < ApplicationController
             sold_listings.push product_order.listing
         end
 
-        # Get sold item with the highest price
+        # Get sold listing with the highest price
         @highest_priced_sale = nil
         highest_price = 0
         sold_listings.each do |listing|
@@ -19,9 +19,15 @@ class PagesController < ApplicationController
             end
         end
       
-        # Get sold item with the lowest price
-        lowest_price = Listing.minimum("price")
-        @lowest_priced_sale = Listing.find_by(price: lowest_price)
+        # Get sold listing with the lowest price
+        @lowest_priced_sale = nil
+        lowest_price = Listing.maximum("price") # start high and replace with lower price
+        sold_listings.each do |listing|
+            if listing.price < lowest_price
+                lowest_price = listing.price
+                @lowest_priced_sale = listing
+            end
+        end
     end
     
     def success
