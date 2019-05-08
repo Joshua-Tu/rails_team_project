@@ -1,5 +1,8 @@
 describe('Users', function() {
-
+    before(function() {
+        cy.app('clean')
+        cy.app('seed')
+    });
 
     it('Show Sign in Page', function() {
         cy.visit('/users/sign_up') 
