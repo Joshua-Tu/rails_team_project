@@ -1,26 +1,53 @@
 describe('signed_in', function() {
     before(function() {
-        cy.app('clean')
         cy.app('seed')
-        cy.visit('/users/sign_up')
-        cy.get('form').children()
-        cy.get("[data-cy='fullname']").type("automated name test")
-        cy.get("[data-cy='phonenumber']").type("4444666666")
-        cy.get("[data-cy='username']").type("Cypress Username")
-        cy.get("[data-cy='city']").type("City")
-        cy.get("[data-cy='state']").type("State")
-        cy.get("[data-cy='country']").type("Country")
-        cy.get("[data-cy='email']").type("cypress@test.com")
-        cy.get("[data-cy='password']").type("password")
-        cy.get("[data-cy='cpassword']").type("password")
-        cy.get("input[type='submit']").click()
-        cy.contains("Welcome! You have signed up successfully")
-
     });
 
-    it("Show Listing Page", function() {
+    beforeEach("log in", function(){ 
+        cy.wait(500)
+        cy.visit('/users/sign_in')
+        cy.get("[data-cy='email']").type("cypress@test.com")
+        cy.get("[data-cy='password']").type("password")
+        cy.get("input[type='submit']").click()
+    });
+
+    it("Show New Listing Page", function() {
+        cy.wait(500)
         cy.visit('/listings/new')
         cy.contains('New Listing')
+    });
+
+    // it("Title title less than 3", function() { 
+    //     cy.visit('/listings/new')
+    //     cy.contains('New Listing')
+    //     cy.get("[data-cy='title']").type("ab")
+    //     cy.get("[data-cy='price']").type("6")
+    //     cy.get("[data-cy='description']").type("this is a description")
+    //     cy.get("[data-cy='showphone']").click()
+    //     cy.get("[data-cy='submit']").click()
+    //     cy.contains("Title is too short (minimum is 3 characters)")
+    // });
+
+    // it("Title length greater than 50", function() { 
+    //     cy.visit('/listings/new')
+    //     cy.contains('New Listing')
+    //     cy.get("[data-cy='title']").type("aaaaabbbbbcccccdddddeeeeeaaaaabbbbbcccccdddddeeeeea")
+    //     cy.get("[data-cy='price']").type("6")
+    //     cy.get("[data-cy='description']").type("this is a description")
+    //     cy.get("[data-cy='showphone']").click()
+    //     cy.get("[data-cy='submit']").click()
+    //     cy.contains("Title is too long (maximum is 50 characters)")
+    // });
+
+    it("Price lower than 5", function() { 
+        cy.visit('/listings/new')
+        cy.contains('New Listing')
+        cy.get("[data-cy='title']").type("aaaaabbbbbcccccdddddeeeeeaaaaabbbbbcccccdddddeeeeea")
+        cy.get("[data-cy='price']").type("4")
+        cy.get("[data-cy='description']").type("this is a description")
+        cy.get("[data-cy='showphone']").click()
+        cy.get("[data-cy='submit']").click()
+        cy.contains("New Listing")
     });
 
 });
