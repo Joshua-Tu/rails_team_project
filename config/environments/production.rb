@@ -40,6 +40,12 @@ Rails.application.configure do
 
   # Store uploaded files on the local file system (see config/storage.yml for options)
   config.active_storage.service = :amazon
+  
+  # Heroku environment variables
+  AWS::S3::Base.establish_connection!(
+    :access_key_id => ENV['S3_KEY'],
+    :secret_access_key => ENV['S3_SECRET']
+  )
 
   # Mount Action Cable outside main process or domain
   # config.action_cable.mount_path = nil
