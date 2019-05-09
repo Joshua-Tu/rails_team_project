@@ -1,1 +1,1 @@
-Stripe.api_key = Rails.application.credentials.dig(:stripe, :secret)
+Stripe.api_key = ENV['SECRET_KEY']

@@ -14,7 +14,7 @@ class ListingsController < ApplicationController
     @mark = @listing.show_phone
     if user_signed_in?
       unless @listing.product_order
-        Stripe.api_key = ENV['SECRET_KEY']
+        #Stripe.api_key = ENV['SECRET_KEY']
         stripe_session = Stripe::Checkout::Session.create(
           payment_method_types: ['card'],
           client_reference_id: current_user.id,
@@ -93,7 +93,7 @@ class ListingsController < ApplicationController
     payment_id = params[:data][:object][:payment_intent]
     payment = Stripe::PaymentIntent.retrieve(payment_id)
     p params[:data][:object]["client_reference_id"]
-    p params["metadata"]["listing_id"]
+    p payment["metadata"]["listing_id"]
     ProductOrder.create(user_id: params[:data][:object]["client_reference_id"], listing_id: payment["metadata"]["listing_id"])
   end
 
