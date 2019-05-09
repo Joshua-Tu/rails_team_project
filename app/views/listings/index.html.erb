@@ -5,7 +5,7 @@
 
 <div id="listings-container" class="container">
 
-  <% @listings.each_with_index do |listing, index| %>
+  <% @unpurchased_listings.each_with_index do |listing, index| %>
 
     <% if index == 0 # the very first listing %>
       <div class="row"><!-- open .row -->
