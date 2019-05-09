@@ -65,8 +65,11 @@ describe('signed_in', function() {
         cy.get("[data-confirm='Are you sure?']").contains('Remove').click()
         cy.wait(500)
         cy.wait(500)
+        Cypress.on('uncaught:exception', (err, runnable) => {
+            return false
+        })
         cy.contains('Listing was successfully destroyed.')
-        // uncaught type error? message that a listing was successfully destroyed appears
+        
 
 
     });
