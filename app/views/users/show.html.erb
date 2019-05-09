@@ -1,26 +1,27 @@
 <div id="user-profile">
+
   <% if @user.id == current_user.id %>
-    <h2 class="my-4">My Profile</h2>
+    <h2 class="my-4 text-center">My Profile</h2>
   <% end %>
 
   <div id="user-info" class="row">
-    <div class="col-sm-4">
+    <div class="col-sm-4 mb-4 text-center">
       <% if @user.picture.attached? %>
         <%= image_tag @user.picture, class: "img-fluid" %>
       <% else %>
         <%= image_tag "snoop-profile-pic.gif", class: "img-fluid" %>
       <% end %>
     </div>
-    <div class="col-sm-8">
-      <h3 class="mb-4"><%= @user.username %></h3>
-      <p>User Rating: N/A</p>
-      <p>Name: <%= @user.full_name %></p>
-      <p>Member Since: <%= @user.created_at %><p>
-      <p>Location: <%= @user.location.city %>, <%= @user.location.state %>, <%= @user.location.country %></p>
-      <p>Email: <%= @user.email %></p>
-      <% if user_signed_in? and @user.id == current_user.id %>
-        <%= link_to "Update Account", edit_user_registration_path, class: "btn btn-primary" %>
-      <% end %>
+    <div class="col-sm-8 text-center">
+        <h3 class="mb-4"><%= @user.username %></h3>
+        <p>User Rating: N/A</p>
+        <p>Name: <%= @user.full_name %></p>
+        <p>Member Since: <%= @user.created_at %><p>
+        <p>Location: <%= @user.location.city %>, <%= @user.location.state %>, <%= @user.location.country %></p>
+        <p>Email: <%= @user.email %></p>
+        <% if user_signed_in? and @user.id == current_user.id %>
+          <%= link_to "Update Account", edit_user_registration_path, class: "btn btn-primary" %>
+        <% end %>
     </div>
   </div><!-- end of #user-info.row -->
 
