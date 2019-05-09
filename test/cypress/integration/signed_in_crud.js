@@ -1,6 +1,7 @@
 describe('signed_in', function() {
     before(function() {
         cy.app('seed')
+
     });
 
     beforeEach("log in", function(){ 
@@ -10,9 +11,7 @@ describe('signed_in', function() {
         cy.get("[data-cy='password']").type("password")
         cy.get("input[type='submit']").click()
     });
-
-    it("Show New Listing Page", function() {
-        cy.wait(500)
+    it("Show Listing Page", function() {
         cy.visit('/listings/new')
         cy.contains('New Listing')
     });
@@ -37,17 +36,6 @@ describe('signed_in', function() {
         cy.get("[data-cy='showphone']").click()
         cy.get("[data-cy='submit']").click()
         cy.contains("Title is too long (maximum is 50 characters)")
-    });
-
-    it("Price lower than 5", function() { 
-        cy.visit('/listings/new')
-        cy.contains('New Listing')
-        cy.get("[data-cy='title']").type("aaaaabbbbbcccccdddddeeeeeaaaaabbbbbcccccdddddeeeeea")
-        cy.get("[data-cy='price']").type("4")
-        cy.get("[data-cy='description']").type("this is a description")
-        cy.get("[data-cy='showphone']").click()
-        cy.get("[data-cy='submit']").click()
-        cy.contains("New Listing")
     });
 
     it("Description is too short", function() { 
@@ -76,9 +64,10 @@ describe('signed_in', function() {
         cy.visit('/listings')
         cy.get("[data-confirm='Are you sure?']").contains('Remove').click()
         cy.wait(500)
+        cy.wait(500)
         cy.contains('Listing was successfully destroyed.')
         // uncaught type error? message that a listing was successfully destroyed appears
-        
+
 
     });
 
