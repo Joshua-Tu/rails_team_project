@@ -14,7 +14,6 @@ class ListingsController < ApplicationController
     @mark = @listing.show_phone
     if user_signed_in?
       unless @listing.product_order
-        #Stripe.api_key = ENV['SECRET_KEY']
         stripe_session = Stripe::Checkout::Session.create(
           payment_method_types: ['card'],
           client_reference_id: current_user.id,
