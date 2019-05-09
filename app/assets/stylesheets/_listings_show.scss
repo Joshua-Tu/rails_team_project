@@ -1,11 +1,10 @@
 #listing-page {
   img {
-    // width: 300px; /* You can set the dimensions to whatever you want */
-    // height: 300px;
-    object-fit: cover;
-    margin-bottom: 10px;
+    max-width: 100%;
+    //object-fit: cover;
+    //margin-bottom: 10px;
   }
-  #listing-data form {
-    line-height: 2;
-  }
+  // #listing-data form {
+  //   line-height: 2;
+  // }
 }
