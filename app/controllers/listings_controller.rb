@@ -1,13 +1,12 @@
 class ListingsController < ApplicationController
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show, :payment]
+  before_action :set_purchased_and_unpurchased_listings, only: [:index, :show]
   skip_before_action :verify_authenticity_token, only: [:payment]
   # GET /listings
   # GET /listings.json
   def index
-    @listings = Listing.all
-    @purchased_listings = Listing.joins(:product_order)
-    @unpurchased_listings = @listings - @purchased_listings
+
   end
 
   # GET /listings/1
@@ -24,11 +23,11 @@ class ListingsController < ApplicationController
             description: @listing.description,
             amount: @listing.price * 100, #Basic unit of stripe payment is cent.
             currency: 'aud',
-            quantity: 1,
+            quantity: 1
           }],
           payment_intent_data: {
             metadata: {
-                listing_id: @listing.id
+              listing_id: @listing.id
             }
           },
           success_url: success_url,
@@ -105,6 +104,12 @@ class ListingsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
       params.require(:listing).permit(:title, :price, :description, :phone_number, :picture, :show_phone, :rating)
+    end
+
+    def set_purchased_and_unpurchased_listings
+      @listings = Listing.all
+      @purchased_listings = Listing.joins(:product_order)
+      @unpurchased_listings = @listings - @purchased_listings
     end
 
 end
