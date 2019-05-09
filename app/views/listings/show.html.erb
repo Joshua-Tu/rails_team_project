@@ -7,7 +7,7 @@
             <% unless @listing.picture.attached? and user_signed_in? and @listing.user_id == current_user.id %>
                 <p ><%= image_tag('defaultbox.jpg', class: "img-fluid") %></p>
             <% else %>
-                <p><%= image_tag(@listing.picture) %></p>
+                <p><%= image_tag(@listing.picture, class: "img-fluid") %></p>
             <% end %>
             
             <% if current_user && @listing.user == current_user %>
