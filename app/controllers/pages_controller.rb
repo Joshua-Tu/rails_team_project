@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-    before_action :purchased_listing_id, only:[ :success, :rating]
+    #before_action :purchased_listing_id, only:[ :success, :rating]
 
     def home
         # Get an array of listings that have been sold/ordered
@@ -49,6 +49,6 @@ class PagesController < ApplicationController
 
     private
     def purchased_listing_id
-        @purchased_listing_id = User.find(current_user.id).product_orders.last.listing
+        #@purchased_listing_id = User.find(current_user.id).product_orders.last.listing
     end
 end
