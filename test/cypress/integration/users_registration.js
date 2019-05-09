@@ -77,8 +77,16 @@ describe('Users', function() {
     });
 
     it('log out', function() {
+        cy.visit('/users/sign_in')
+        cy.get("[data-cy='email']").type("cypress@test.com")
+        cy.get("[data-cy='password']").type("password")
+        cy.get("input[type='submit']").click()
         cy.get("button").click()
         cy.get(".nav-link").last().click()
+        Cypress.on('uncaught:exception', (err, runnable) => {
+            return false
+        })
+        cy.contains("Signed out successfully.")
     });
 
 
