@@ -3,9 +3,9 @@
 
     <div class="row mb-4">
 
-        <div class="col-md-4 text-center">
-            <% unless @listing.picture.attached? and user_signed_in? and @listing.user_id == current_user.id %>
-                <p><%= image_tag('defaultbox.jpg') %></p>
+        <div class="col-sm-4 text-center">
+            <% unless @listing.picture.attached? and user_signed_in? and ProductOrder.all.pluck(:user_id).include?(current_user.id) and ProductOrder.all.pluck(:listing_id).include?(@listing.id) %>
+                <p ><%= image_tag('defaultbox.jpg', class: "img-fluid") %></p>
             <% else %>
                 <p><%= image_tag(@listing.picture) %></p>
             <% end %>
@@ -59,7 +59,7 @@
             </p>
         </div><!-- end of column -->
             
-        <div class="col-md-8">
+        <div class="col-sm-8">
             <h5 class="text-center"><strong>Description</strong></h5>
             <p>
                 <%= @listing.description %>
