@@ -2,14 +2,14 @@
   <h2 class="mb-4">My Account</h2>
   
   <div id="my-account-info" class="row mb-4">
-    <div class="col-sm-4">
+    <div class="col-sm-4 mb-4 text-center">
       <% if @user.picture.attached? %>
         <%= image_tag @user.picture, class: "img-fluid" %>
       <% else %>
         <%= image_tag "default-user-pic.png", class: "img-fluid" %>
       <% end %>
     </div>
-    <div class="col-sm-8">
+    <div class="col-sm-8 text-center">
       <h4 class="mb-4"><%= @user.username %></h4>
       <p>Name: <%= @user.full_name %></p>
       <p><%= @user.listings.count %> active listings.</p>
@@ -107,18 +107,20 @@
         </div>
       </div><!-- end of row -->
 
-      <div class="actions mb-4">
+      <div class="actions mb-4 text-center">
         <%= f.submit "Submit", class: "btn btn-primary" %>
       </div>
     <% end %>
   </div><!-- end of #update-account -->
 
-  <div id="delete-account" class="mb-4">
+  <div id="delete-account" class="mb-4 text-center">
     <h3 class="mb-4">Cancel Account</h3>
     <p>Unhappy?</p>
     <%= button_to "Delete My Account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger" %>
+    
   </div>
-
-  <%= link_to "Back", :back, class: "btn btn-secondary" %>
+  <div class="text-center">
+    <%= link_to "Back", :back, class: "btn btn-secondary" %>
+  </div>
 
 </div><!-- end of #edit-user -->
