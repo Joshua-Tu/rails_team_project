@@ -5,16 +5,16 @@
   <% end %>
 
   <div id="user-info" class="row">
-    <div class="col-sm-4 text-center">
+    <div class="col-sm-4 mb-4 text-center">
       <% if @user.picture.attached? %>
         <%= image_tag @user.picture, class: "img-fluid" %>
       <% else %>
         <%= image_tag "default-user-pic", class: "img-fluid" %>
       <% end %>
     </div>
-    <div class="col-sm-8">
+    <div class="col-sm-8 text-center">
         <h3 class="mb-4"><%= @user.username %></h3>
-        <p class="text-sm-center" >User Rating: N/A</p>
+        <p>User Rating: N/A</p>
         <p>Name: <%= @user.full_name %></p>
         <p>Member Since: <%= @user.created_at %><p>
         <p>Location: <%= @user.location.city %>, <%= @user.location.state %>, <%= @user.location.country %></p>
