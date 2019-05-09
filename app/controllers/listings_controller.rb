@@ -26,7 +26,7 @@ class ListingsController < ApplicationController
           }],
           payment_intent_data: {
             metadata: {
-                listing_id: @listing.id
+              listing_id: @listing.id
             }
           },
           success_url: success_url,
@@ -91,8 +91,6 @@ class ListingsController < ApplicationController
   def payment
     payment_id = params[:data][:object][:payment_intent]
     payment = Stripe::PaymentIntent.retrieve(payment_id)
-    p params[:data][:object]["client_reference_id"]
-    p payment["metadata"]["listing_id"]
     ProductOrder.create(user_id: params[:data][:object]["client_reference_id"], listing_id: payment["metadata"]["listing_id"])
   end
 
