@@ -20,7 +20,7 @@
                 <!-- stripe payment won't show up if they aren't signed in -->
                 <% unless @listing.product_order %>
                     <% if user_signed_in? %>
-                        <p><button id="stripePayment"><i class="fas fa-shopping-cart"></i>Buy It Now</button></p>
+                        <p><button id="stripePayment" class="btn btn-primary"><i class="fas fa-shopping-cart"></i>&nbsp;&nbsp;Buy It Now</button></p>
                     <% else %>
                         <p>You must <%= link_to "Sign Up", new_user_registration_path  %> or 
                         <%= link_to "Sign In", new_user_session_path %> to make a purchase.</p>
@@ -51,20 +51,16 @@
                     <% end %>
                 <% end %>
             </div><!-- end of #listing-data -->
-            <p>
-                <% if user_signed_in? && @mark == true %>
-                    <h6>Contact The Seller</h6>
-                    <%= @listing.user.phone_number %>
-                <% end %>
-            </p>
+            <% if user_signed_in? && @mark == true %>
+                <h6>Contact The Seller</h6>
+                <p><%= @listing.user.phone_number %></p>
+            <% end %>
         </div><!-- end of column -->
             
-        <div class="col-sm-8">
-            <h5 class="text-center"><strong>Description</strong></h5>
-            <p>
-                <%= @listing.description %>
-            </p>
-            <p class="text-right"><%= link_to 'Back', listings_path, class: "btn btn-secondary mt-2" %></p>
+        <div class="col-sm-8 text-center">
+            <h5 class="mb-4"><strong>Description</strong></h5>
+            <p><%= @listing.description %></p>
+            <p><%= link_to 'Back', listings_path, class: "btn btn-secondary mt-2" %></p>
         </div><!-- end of column -->
 
     </div><!-- end of row -->
