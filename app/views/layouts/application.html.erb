@@ -17,9 +17,7 @@
         <%= link_to "Mystery Box Market", root_path, class: "navbar-brand" %>
         <div class="welcome-user">
           <% if user_signed_in? %>
-            <h5>Welcome <%= current_user.username %>!</h5>
-          <% else %>
-            <h5>Welcome! </h5>
+            <h5 class="mb-0">Welcome <%= current_user.username %>!</h5>
           <% end %>
         </div>
         <!-- Collapse button -->
