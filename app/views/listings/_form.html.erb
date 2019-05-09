@@ -17,7 +17,7 @@
       <%= label_tag :title, "Listing Title: " %>
     </div>
     <div class="col-sm-8">
-      <%= form.text_field :title, class: "form-control" %>
+      <%= form.text_field :title, class: "form-control", data: {cy: "title"}%>
     </div>
   </div><!-- end of row -->
   
@@ -26,7 +26,7 @@
       <%= label_tag :price, "Price: " %>
     </div>
     <div class="col-sm-8">
-      <%= form.number_field :price, min: 5,class: "form-control" %>
+      <%= form.number_field :price, min: 5,class: "form-control", data: {cy: "price"}%>
     </div>
   </div><!-- end of row -->
   
@@ -35,7 +35,7 @@
       <%= label_tag :description, "Description: " %>
     </div>
     <div class="col-sm-8">
-      <%= form.text_area :description, class: "form-control" %>
+      <%= form.text_area :description, class: "form-control", data: {cy: "description"}%>
     </div>
   </div><!-- end of row -->
 
@@ -47,7 +47,7 @@
       <% if listing.picture.attached? %>
         <div class="row mb-2">
           <div class="col-sm-6">
-            <%= image_tag listing.picture, class: "img-fluid" %>
+            <%= image_tag listing.picture, class: "img-fluid" %> 
           </div>
           <div class="col"></div>
         </div>
@@ -61,8 +61,8 @@
       <%= label_tag :show_phone, "Show my phone number:" %>
     </div>
     <div class="col-sm-8">
-      <%= form.radio_button :show_phone, true %> Yes<br />
-      <%= form.radio_button :show_phone, false %> No
+      <%= form.radio_button :show_phone, true, data: {cy: "showphone"} %> Yes<br />
+      <%= form.radio_button :show_phone, false, data: {cy: "hidephone"} %> No
     </div>
   </div><!-- end of row -->
 
@@ -70,7 +70,7 @@
     <div class="col-sm-4">
     </div>
     <div class="col-sm-8">
-      <%= form.submit "Submit", class: "btn btn-primary form-control-inline" %>
+      <%= form.submit "Submit", class: "btn btn-primary form-control-inline", data: {cy: "submit"} %>
     </div>
   </div>
 <% end %>

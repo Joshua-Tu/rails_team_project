@@ -6,6 +6,8 @@ class ListingsController < ApplicationController
   # GET /listings.json
   def index
     @listings = Listing.all
+    @purchased_listings = Listing.joins(:product_order)
+    @unpurchased_listings = @listings - @purchased_listings
   end
 
   # GET /listings/1
@@ -22,11 +24,11 @@ class ListingsController < ApplicationController
             description: @listing.description,
             amount: @listing.price * 100, #Basic unit of stripe payment is cent.
             currency: 'aud',
-            quantity: 1,
+            quantity: 1
           }],
           payment_intent_data: {
             metadata: {
-                listing_id: @listing.id
+              listing_id: @listing.id
             }
           },
           success_url: success_url,
@@ -51,7 +53,8 @@ class ListingsController < ApplicationController
   def create
 
     @listing = current_user.listings.build(listing_params)
-
+    # The default value of the rating of the listing when created is 5
+    @listing.rating = 5 
     respond_to do |format|
       if @listing.save
         format.html { redirect_to @listing, notice: 'Listing was successfully created.' }

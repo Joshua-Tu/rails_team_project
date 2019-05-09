@@ -23,8 +23,9 @@ end
     # encrypted_password: "abcde",
     password: "abcde",
     phone_number: Faker::PhoneNumber.phone_number,
-    username: Faker::FunnyName.name,  
-    location: Location.find(rand(1..Location.all.count))
+    username: Faker::FunnyName.name,
+    rating: 5,  
+    location: Location.find(rand(1..Location.all.count)) #seems this line doesn't work
   )
   user.save!(validate: false)
   puts "Created #{i + 1} users."
@@ -35,7 +36,7 @@ end
   user: User.find(rand(1..User.all.length)),
   description: Faker::Food.description,
   title: Faker::Food.dish,
-  price: [5, 10, 20, 50].sample
+  price: [6, 10, 20, 50].sample
   )
   item.save!(validate: false)
   puts "Created #{i + 1} items."

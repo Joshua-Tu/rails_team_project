@@ -5,7 +5,7 @@
 
 <div id="listings-container" class="container">
 
-  <% @listings.each_with_index do |listing, index| %>
+  <% @unpurchased_listings.each_with_index do |listing, index| %>
 
     <% if index == 0 # the very first listing %>
       <div class="row"><!-- open .row -->
@@ -19,12 +19,12 @@
 
     <div class="col-sm-4 text-center"><!-- open column -->
       <div class="container">
-        <div class="listing-image">
-          <% unless listing.picture.attached? %>
-            <%= link_to image_tag('defaultbox.jpg', class: "img-thumbnail"), listing %>
-          <% else %>
-            <%= link_to image_tag(listing.picture, class: "img-thumbnail"), listing %>
-          <% end %>
+        <div class="listing-image">  
+            <% unless listing.picture.attached? and user_signed_in? and ProductOrder.all.pluck(:user_id).include?(current_user.id) and ProductOrder.all.pluck(:listing_id).include?(listing.id) %>
+              <%= link_to image_tag('defaultbox.jpg', class: "img-thumbnail"), listing %>
+            <% else %>
+              <%= link_to image_tag(listing.picture, class: "img-thumbnail"), listing %>
+            <% end %>
         </div><!-- end of .listing-image -->
 
         <div class="listing-content mt-4">
@@ -35,7 +35,7 @@
             $<%= listing.price.to_f.round(2) %>
           </p>
           <p>
-            <%= link_to '<span class="badge badge-info">View Item</span>'.html_safe, listing %>
+            <%= link_to 'View Listing', listing, class: "btn btn-primary btn-xs" %>
             <% if current_user && listing.user == current_user %>
               <%= link_to '<span class="badge badge-warning">Edit</span>'.html_safe, edit_listing_path(listing) %>
               <%= link_to '<span class="badge badge-danger">Remove</span>'.html_safe, listing, method: :delete, data: { confirm: 'Are you sure?' } %>
