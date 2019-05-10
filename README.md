@@ -3,28 +3,126 @@
 **<h2>Website</h2>**
 https://www.mysteryboxmarket.space/
 
+---
+---
+
 **<h2>Github</h2>**
 https://github.com/Joshua-Tu/rails_team_project
-Ensure the repo is accessible by your Educators
 
-<h2>Contents<h2>
-1. Section 1 About Mystery Box Market
+---
+---
+**<h2>Contents<h2>**
 
-2. Section 1.1
+**<h3>Section 1 About </h3>**
+- Section 1.1 About Mystery Box Market
 
-3. Planning Process
+**<h3>Section 2 Design Documentation</h3>**
 
-4. 2.2 Short Answer Questions
+- Section 2.1 Design Process
 
-**<h2>About Mystery Box Market<h2>**
-Problem definition / purpose
-Description of your project, including,
-Problem definition / purpose
-Functionality / features
-Screenshots
-Tech stack (e.g. html, css, deployment platform, etc)
-Instructions on how to setup, configure and use your App.
-Design documentation including,
+- Section 2.2 User Stories
+
+- Section 2.3 Workflow Diagram of the users Journey
+
+- Section 2.4 Wireframes
+
+- Section 2.5 Database Entity Relationship Diagram
+
+**<h3>Section 3 Planning Process</h3>**
+
+- 3.1 Project Plan and Time Line
+
+- 3.2 Screen shots of Trello Board
+
+**<h3>Section 4 Short Answer Questions</h3>**
+- 4.1 Short Answer Questions
+
+---
+---
+
+**<h2>Section 1 About Mystery Box Market<h2>**
+
+</h3>Mystery Box Market is an online shopping platform for users to buy and sell mystery boxes to one another. There is a currently a gap in the market for mystery boxes that allow people to buy and sell to each other. 
+
+The issue with this is that rather than going onto shopping platforms to sell these items, we came up with a solution to allow like minded users who are specifically looking at buying or selling mystery boxes a platform in which they can do just that under a single roof.
+
+Our applications features offer users to buy and sell mystery boxes directly to one another. As a community feature, we have added a way for other users to rate the seller based on the contents of the box they purchased, if it had some value or if it was utter rubbish. 
+
+Users need to be logged in and registered to be able to buy and sell these items.</h3>
+
+___
+
+**The tech stack we used to create this app include :**
+
+---
+
+- Ruby on rails for a web app framework.
+
+- Github for version and source control.
+
+- Slack for group communication.
+
+- Trello for task management.
+
+- Heroku for the use of a deployment platform.
+
+- VSCode for code editting
+
+- HTML, CSS, Javascript and Ruby for our programming languages.
+
+- Bootstrap for page layout
+
+- PostgreSQL for our database.
+
+- AWS For Image Uploading
+
+- Stripe for accepting payments online
+
+
+---
+
+Gems installed
+
+---
+
+gem "devise", "~> 4.6"
+
+gem "faker", "~> 1.9"
+
+gem "bootstrap", "~> 4.3"
+
+gem "jquery-rails", "~> 4.3"
+
+gem "aws-sdk-s3", "~> 1.36"
+
+gem "stripe", "~> 4.16"
+
+---
+**Setting up the Application**
+
+---
+
+- Clone the files from the repo
+- run the command 
+    - $ gem install bundler.
+    - For more information, visit https://bundler.io/.
+- Move into the cloned directory
+- run the command 
+    - $ bundle install 
+        - bundle install installs all the gems located inside the gemfile for the project rather than individually installing each gem file.
+- You are now up and ready to begin
+
+---
+---
+
+**<h2>Section 2 Design Documentation</h2>**
+
+**Section 2.1 Design Process**
+
+The design
+
+
+
 Design process
 User stories
 A workflow diagram of the user journey/s.
@@ -34,8 +132,8 @@ Details of planning process including,
 Project plan & timeline
 Screenshots of Trello board(s)
 
-**<h2>Section 2.2 Short Answer Questions<h2>**
-Answers to the Short Answer questions (Section 2.2)
+**<h2>Section 4.1 Short Answer Questions<h2>**
+
 
 <h4>1. What is the need (i.e. challenge) that you will be addressing in your project?</h4>
 There is a gap in the market for mystery boxes that people can send to each other. Rather than going onto shopping platforms specifically looking for mystery boxes, we decided to create a platform directly for this niche. 
@@ -50,7 +148,7 @@ The project we’ve conducted was to create a way for the target audience to be 
 
 <h4>4. Describe the network infrastructure the App may be based on.</h4>
 
-Our app uses the Ruby on rails framework. Our App is hosted on the world wide web through heroku that makes it accessible to others by being able to send through http requests through URLS through the browser which sends it to our rails application Puma which communicates to take in the requests and provide the correct requests which are sent back up the chain back to the user.
+Our app uses the Ruby on rails framework. Our App is hosted on the world wide web through heroku that makes it accessible to others by being able to send through http requests through URLS through the browser which sends it to our rails application Puma which communicates to take in the requests and provide the correct requests which are sent back up the chain back to the
 
 <h4>5. Identify and describe the software to be used in your App.</h4> 
 The software we used in this project includes:
@@ -91,7 +189,7 @@ A gem for automated web browser testing of our website to ensure things are work
 9. Database_cleaner (Gem) (Add on for Cypress on Rails)
 A gem add-on to for Cypress to enable us to clean the database when instructed to.
 
-<h4>6 Identify the database to be used in your App and provide a justification for your choice.</h4>
+<h4>6. Identify the database to be used in your App and provide a justification for your choice.</h4>
 
 For our application, we used Postgresql. Postgresql is a relationational database system that works with deploying to Heroku rather than the default database rails gives us which is SQL lite. It synergizes extremely well with Rails and thus has a few helper methods in built into it. 
 
@@ -140,28 +238,63 @@ Has_many
 Has_many THROUGH another
 That way each table can interact with each other whilst still being a separate entity. For example, a listing belongs_to a user where as a user has_many listings. A product order belongs to a user and listing while a listing has_one product order and a user has_many product orders.
 
-<h4></h4>
+<h4>14. Provide your database schema design.</h4>
+
+Our Database Schema Design
+![ERD](./docs/erd/mysteryboxmarketerd.jpg)
+
 <h4>15. Provide User stories for your App.</h4>
 
 User Stories:
 
 
-As Nathaniel, I want to be be able to give someone a unique gift because I am utterly clueless at gifting ideas.
+- As Nathaniel, I want to be be able to give someone a unique gift because I am utterly clueless at gifting ideas.
 
 
-As Joshua, I want to be able to sell items lying around my house to clean up clutter and make some cash.
+- As Joshua, I want to be able to sell items lying around my house to clean up clutter and make some cash.
 
 
-As Jim, I want to purchase a surprise item because I'm curious and have cash lying around.
+- As Jim, I want to purchase a surprise item because I'm curious and have cash lying around.
 
 
-As Bob, I want to buy other peoples unwanted items in case there's something valuable to salvage or sell.
+- As Bob, I want to buy other peoples unwanted items in case there's something valuable to salvage or sell.
 
 
-As Hawthorne, I want to get rid of unwanted items and would like to get paid something for it.
+- As Hawthorne, I want to get rid of unwanted items and would like to get paid something for it.
 
 
 <h4>16. Provide Wireframes for your App.</h4>
+
+Landing Page
+
+![Landing Page](./docs/wireframes/landing_page_signedin_signedout.png)
+
+Listing Page
+![Listing Page](./docs/wireframes/listing_page.png)
+
+Creating a new listing or edit a listing.
+![Create a new listing](./docs/wireframes/listings_create_edit.png)
+
+The Listing Page.
+![Show a listing](./docs/wireframes/listings_page.png)
+
+Mobile Home Page.
+![Mobile Home page](./docs/wireframes/Mobile-Homepage.jpg)
+
+Mobile Listing Page.
+![Mobile listing page](./docs/wireframes/Mobile-Listings-index.jpg)
+
+Nav Bar Links
+![Navbar Links](./docs/wireframes/Navbar-links.jpg)
+
+Nav Bar Links with mark up.
+![Nav bar links with mark up](./docs/wireframes/Navbar-with-markup.jpg)
+
+User Profile Page
+![User profile page](./docs/wireframes/profile_page.png)
+
+Register, Log in and Account settings page.
+![register log in and account settings page](./docs/wireframes/register_login_accountsettings.png)
 
 
 <h4>17. Describe the way tasks are allocated and tracked in your project.</h4>
