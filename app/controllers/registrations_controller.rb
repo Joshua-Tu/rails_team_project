@@ -29,24 +29,18 @@ class RegistrationsController < Devise::RegistrationsController
     #   set_minimum_password_length
     #   respond_with resource
     # end 
-
+    # ^ FOR REFERENCE ^ (parent class method)
     super
-
-    # Custom fields are updating even when there are form errors...
-    # possible solutions:
-    # - Make sure custom fields are validated the same way devise's fields are
-    # - Respond with error page (and 'back' link) if custom fields don't pass custom validation
-    # - 
-    
-    p "************"
-    p resource.phone_number
-    p "************"
   end
 
   private 
 
   def set_user
     @user = User.find(current_user.id)
+  end
+
+  def after_update_path_for(resource)
+      user_path(resource)
   end
 
   def add_user_loaction
