@@ -411,13 +411,63 @@ Throughout the day, we would also manually test our partners code and give feedb
 ---
 
 <h4>21. Discuss and analyse requirements related to information system security.</h4>
+The fundamental purpose of information system security is to protect infernal information from internal, external, and natural threat. 
+
+To ensure information system security, information source authentication, access control, no illegal software residency, no unauthorized operation is required. The information system security mechanism shall judge the source of the information, it shall identify the information of the counterfeit source. 
+
+It can ensure that the confidential information is not eavesdropped or its true meaning cannot be understood by eavesdroppers. It can ensure data consistency and prevent data from being tampered with by illegal users. It can ensure that the use of information and resources by legitimate users isnot improperly rejected. It can help establish an effective accountability measures to prevent users from denying their behavior, which is extremely important in e-commerce. It can control over the dissemination and content of information.
+
 
 ---
 
 <h4>22. Discuss methods you will use to protect information and data.
 </h4>
 
+- Regular backup and remote storage of the most important data files in the computer system
+
+- Duplication and backup of all network subsystems that are important for data security
+
+- Possibility to reallocate network resources in case of the malfunctions of individual elements
+
+- Possibility to use backup power supply systemsEnsuring safety from fire or water damage
+
+- Installation of the software that protects databases and other information from unauthorized access.
+
+- Usage of identification and authentication to prevent unauthorized access to information. Authenticity will also be established by programs, apparatus and by men. Apart from aperson being an object of authentication, it can extend to hardware (computer, monitor and carriers) or data. Setting a password is the easiest method of protection.
+
 ---
 
 <h4>23. Research what your legal obligations are in relation to handling user data.
 </h4>
+
+According to Australia’s Privacy law, the Privacy Act 1988 which regulates the handling of personal information about individuals. We have the responsibility to protect personal information from theft, misuse, interference, loss, unauthorized access, modification, disclosure. 
+
+We shall also take reasonable steps to destroy or de-identify personal information when it is no longer needed for any purpose permitted under the Privacy Act 1988. This might include shredding documents or storing them in a secure area.
+
+According to Australian Privacy Principles (APPs)
+
+- We must implement practices, procedures and systems to ensure compliance with the APPs and to handle complaints.
+
+- We must make available an up-to-date and clear privacy policy, setting out certain information on how we will manage personal information.
+
+- We must take reasonable steps to protect the personal information collected or held.
+
+- We must take reasonable steps to ensure that personal information collected is accurate, complete and up to date.
+
+- We must give individuals access to their personal information on request.
+
+- We must correct personal information where we become aware that it is either:oinaccurateoincompleteoout of dateoirrelevantomisleadingowhere requested by the individual.
+
+- We can only collect personal information if it is necessary for the function or activity of our business.
+
+- We must de-identify or delete unsolicited personal information as soon as is practical, if it is not necessary for the function or activity of our business.
+
+- We should not use or disclose personal information for a purpose different from the original purpose of collection, except in limited circumstances.
+
+- Although we can collect and use personal information, we generally need the individuals consent first.
+
+- We must not use or disclose personal information for a direct marketingpurpose, except in limited circumstances. 
+    - We need to have a clear and up to date privacy policy that outlines the information we:
+        - collect
+        - what we use it for
+        - how we protect it
