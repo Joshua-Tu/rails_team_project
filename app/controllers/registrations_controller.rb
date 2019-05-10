@@ -43,6 +43,14 @@ class RegistrationsController < Devise::RegistrationsController
       user_path(resource)
   end
 
+  def update_resource(resource, params)
+    # Require current password if user is trying to change password.
+    return super if params["password"]&.present?
+
+    # Allows user to update registration information without password.
+    resource.update_without_password(params.except("current_password"))
+  end
+  
   def add_user_loaction
     # if city, state and country are all present (not empty or nill)
     if params.values_at(:city, :state, :country).all?(&:present?)

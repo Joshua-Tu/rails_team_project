@@ -15,7 +15,7 @@
     
     <div class="field form-group form-row">
       <div class="col-sm-4 col-form-label">
-        <%= f.label :phone_number, "Phone Number: " %>
+        <%= f.label :phone_number, autofocus: true, "Phone Number: " %>
       </div>
       <div class="col-sm-8">
         <%= f.number_field :phone_number, autofocus: true, class: "form-control", data: {cy: "phonenumber"} %>
