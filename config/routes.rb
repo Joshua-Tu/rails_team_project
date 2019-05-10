@@ -13,6 +13,12 @@ Rails.application.routes.draw do
   # Cancel Payment Page
   get "/cancel", to: "pages#cancel", as: "cancel"
 
+  # Privacy Policy Page
+  get "/privacy_policy", to: "pages#privacy_policy", as: "privacy_policy"
+
+  # Terms and Conditions Page
+  get "/terms", to: "pages#terms", as: "terms"
+
   get "/listings/:id/rating", to: "pages#rating", as: "rating"
   
   post "/listings/:id/rating", to: "pages#set_rating"

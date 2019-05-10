@@ -47,6 +47,14 @@ class PagesController < ApplicationController
         
     end
 
+    def privacy_policy
+        
+    end
+
+    def terms
+
+    end
+
     private
     def purchased_listing_id
         #@purchased_listing_id = User.find(current_user.id).product_orders.last.listing
