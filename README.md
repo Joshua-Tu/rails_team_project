@@ -50,6 +50,8 @@ The project we’ve conducted was to create a way for the target audience to be 
 
 <h4>4. Describe the network infrastructure the App may be based on.</h4>
 
+Our app uses the Ruby on rails framework. Our App is hosted on the world wide web through heroku that makes it accessible to others by being able to send through http requests through URLS through the browser which sends it to our rails application Puma which communicates to take in the requests and provide the correct requests which are sent back up the chain back to the user.
+
 <h4>5. Identify and describe the software to be used in your App.</h4> 
 The software we used in this project includes:
 
@@ -95,14 +97,20 @@ For our application, we used Postgresql. Postgresql is a relationational databas
 
 <h4></h4>
 <h4></h4>
-<h4></h4>
-<h4>9. Explain the different high-level components (abstractions) in your App. (MVC)</h4>
+<h4>8. Describe the architecture of your App.</h4>
+
+The architecture of our App uses Ruby on Rails Framework. Inside this framework, we have 6 architectural components which include: Models, Routes, Controllers, Views, Assets and Rails itself.
+
+
+<h4>9. Explain the different high-level components (abstractions) in your App.</h4>
 
 In our application we used Ruby on Rails. Within the framework there are best practices to follow to ensure that if anyone was to work on your code, regarding what they’re looking for they would be able to find.
 We used the Model, View and Controller components for our App.
 We kept all our logic inside our controllers which would glue the view and model together so they could communicate to each other, in some instances a view would not be needed to be rendered.
 For our views, anything relating to being viewed on the screen was located in our views component. There was very little logic inside our views and if there were, it would be simple if statements. For example, if someone is logged in they should be able to see this information/button else it would either render nothing or a message telling the user to sign in to be able to do this feature.
 For our models, it was simply to ensure that our data was passed through and placed into the database or retrieved as well as creating associations for models so that they could in fact interact with other models to to retrieve, update any data.
+Our routes are the pathways the controller uses to know where to direct the user or information to. 
+The assets are where we keep our styling sheets, images to be used, sound files etc that our app may be required to use if requested.
 
 <h4>10. Detail any third party services that your App will use.</h4>
 
