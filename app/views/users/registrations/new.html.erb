@@ -9,7 +9,7 @@
         <%= f.label :full_name, "Full Name: " %>
       </div>
       <div class="col-sm-8">
-        <%= f.text_field :full_name, class: "form-control", data: {cy: "fullname"} %>
+        <%= f.text_field :full_name, autofocus: true, class: "form-control", data: {cy: "fullname"} %>
       </div>
     </div><!-- end of row -->
     
@@ -18,7 +18,7 @@
         <%= f.label :phone_number, "Phone Number: " %>
       </div>
       <div class="col-sm-8">
-        <%= f.number_field :phone_number, class: "form-control", data: {cy: "phonenumber"} %>
+        <%= f.number_field :phone_number, autofocus: true, class: "form-control", data: {cy: "phonenumber"} %>
       </div>
     </div><!-- end of row -->
     
@@ -27,7 +27,7 @@
         <%= f.label :username, "Username: " %>
       </div>
       <div class="col-sm-8">
-        <%= f.text_field :username, class: "form-control", data: {cy: "username"} %>
+        <%= f.text_field :username, autofocus: true, class: "form-control", data: {cy: "username"} %>
       </div>
     </div><!-- end of row -->
     
@@ -90,7 +90,7 @@
         <%= f.label :picture, "Profile Picture: " %>
       </div>
       <div class="col-sm-8">
-        <%= f.file_field :picture, accept: 'image/png,image/gif,image/jpeg,image/jpg', class: "form-control-file" %>
+        <%= f.file_field :picture, autofocus: true, accept: 'image/png,image/gif,image/jpeg,image/jpg', class: "form-control-file" %>
       </div>
     </div><!-- end of row -->
 
