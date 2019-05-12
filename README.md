@@ -154,10 +154,10 @@ User Workflow Diagram
 
 These screenshots depict the certain stages off our development process by keeping track of objectives through Trello. It was a good way to keep track of what needed to be done side by side with our Gantt Chart.
 
-![Trello Board 1](./docs/trello/trello1-min.png)
-![Trello Board 2](./docs/trello/trello2-min.png)
-![Trello Board 3](./docs/trello/trello3-min.png)
-![Trello Board 4](./docs/trello/trello4-min.png)
+![Trello Board 1](./docs/trello/Trello1-min.png)
+![Trello Board 2](./docs/trello/Trello2-min.png)
+![Trello Board 3](./docs/trello/Trello3-min.png)
+![Trello Board 4](./docs/trello/Trello4-min.png)
 
 ---
 **<h2>Section 4.1 Short Answer Questions<h2>**
