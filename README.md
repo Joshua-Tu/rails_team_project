@@ -147,7 +147,7 @@ User Workflow Diagram
 
 **Section 3.1 Project Timeline**
 
-![Rails Team Gantt Chart](./docs/gantt/railsteamganttchart.png)
+![Rails Team Gantt Chart](./docs/gantt/RailsTeamGanttChart.png)
 
 
 **Section 3.2 Screenshots of Trello Board(s)**
