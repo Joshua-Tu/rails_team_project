@@ -129,9 +129,10 @@ gem "stripe", "~> 4.16"
 
 **Section 2.1 Design Process**
 
-The design
 
 - Section 2.1 Design Process
+
+    - The design process we implemented was using the Agile Methodology, utilising quick sprints when coming up with a brand new idea, it's features and it's implementation.
 
 * Section 2.2 User Stories
 
