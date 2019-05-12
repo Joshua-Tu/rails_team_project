@@ -4,16 +4,20 @@
 https://www.mysteryboxmarket.space/
 
 ---
+
 ---
 
 **<h2>Github</h2>**
 https://github.com/Joshua-Tu/rails_team_project
 
 ---
+
 ---
+
 **<h2>Contents<h2>**
 
 **<h3>Section 1 About </h3>**
+
 - Section 1.1 About Mystery Box Market
 
 **<h3>Section 2 Design Documentation</h3>**
@@ -35,22 +39,24 @@ https://github.com/Joshua-Tu/rails_team_project
 - 3.2 Screen shots of Trello Board
 
 **<h3>Section 4 Short Answer Questions</h3>**
+
 - 4.1 Short Answer Questions
 
 ---
+
 ---
 
 **<h2>Section 1 About Mystery Box Market<h2>**
 
-</h3>Mystery Box Market is an online shopping platform for users to buy and sell mystery boxes to one another. There is a currently a gap in the market for mystery boxes that allow people to buy and sell to each other. 
+</h3>Mystery Box Market is an online shopping platform for users to buy and sell mystery boxes to one another. There is a currently a gap in the market for mystery boxes that allow people to buy and sell to each other.
 
 The issue with this is that rather than going onto shopping platforms to sell these items, we came up with a solution to allow like minded users who are specifically looking at buying or selling mystery boxes a platform in which they can do just that under a single roof.
 
-Our applications features offer users to buy and sell mystery boxes directly to one another. As a community feature, we have added a way for other users to rate the seller based on the contents of the box they purchased, if it had some value or if it was utter rubbish. 
+Our applications features offer users to buy and sell mystery boxes directly to one another. As a community feature, we have added a way for other users to rate the seller based on the contents of the box they purchased, if it had some value or if it was utter rubbish.
 
 Users need to be logged in and registered to be able to buy and sell these items.</h3>
 
-___
+---
 
 **The tech stack we used to create this app include :**
 
@@ -78,7 +84,6 @@ ___
 
 - Stripe for accepting payments online
 
-
 ---
 
 Gems installed
@@ -98,24 +103,26 @@ gem "aws-sdk-s3", "~> 1.36"
 gem "stripe", "~> 4.16"
 
 ---
+
 **Setting up the Application**
 
 ---
 
 - Clone the files from the repo
-- run the command 
-    - $ gem install bundler.
-    - For more information, visit https://bundler.io/.
+- run the command
+  - \$ gem install bundler.
+  - For more information, visit https://bundler.io/.
 - Move into the cloned directory
-- run the command 
-    - $ bundle install 
-        - bundle install installs all the gems located inside the gemfile for the project rather than individually installing each gem file.
-- $ rails db:create
-- $ rails db:migrate
-- $ rails s   (To ensure the setup ran properly, go to your local host and type in http://127.0.0.1:3000/listings )
+- run the command
+  - \$ bundle install
+    - bundle install installs all the gems located inside the gemfile for the project rather than individually installing each gem file.
+- \$ rails db:create
+- \$ rails db:migrate
+- \$ rails s (To ensure the setup ran properly, go to your local host and type in http://127.0.0.1:3000/listings )
 - If mystery box market renders onto the page, you are now up and ready to begin!
 
 ---
+
 ---
 
 **<h2>Section 2 Design Documentation</h2>**
@@ -126,21 +133,23 @@ The design
 
 - Section 2.1 Design Process
 
+* Section 2.2 User Stories
 
-- Section 2.2 User Stories
-    - Please refer to Section 4, Question 15.
+  - Please refer to Section 4, Question 15.
 
-- Section 2.3 Workflow Diagram of the users Journey
-User Workflow Diagram
-![User workflow Diagram](./docs/workflowdiagram/work-flow-diagram.png)
+* Section 2.3 Workflow Diagram of the users Journey
+  User Workflow Diagram
+  ![User workflow Diagram](./docs/workflowdiagram/Work-Flow-Diagram.png)
 
-- Section 2.4 Wireframes
-    - Please refer to Section 4, question 16.
+* Section 2.4 Wireframes
 
-- Section 2.5 Database Entity Relationship Diagram
-    - Please refer to Section 4, question 14.
+  - Please refer to Section 4, question 16.
+
+* Section 2.5 Database Entity Relationship Diagram
+  - Please refer to Section 4, question 14.
 
 ---
+
 ---
 
 **<h2>Section 3 Planning Process</h2>**
@@ -148,7 +157,6 @@ User Workflow Diagram
 **Section 3.1 Project Timeline**
 
 ![Rails Team Gantt Chart](./docs/gantt/RailsTeamGanttChart.png)
-
 
 **Section 3.2 Screenshots of Trello Board(s)**
 
@@ -160,13 +168,13 @@ These screenshots depict the certain stages off our development process by keepi
 ![Trello Board 4](./docs/trello/Trello4-min.png)
 
 ---
+
 **<h2>Section 4.1 Short Answer Questions<h2>**
 
 ---
 
-
 <h4>1. What is the need (i.e. challenge) that you will be addressing in your project?</h4>
-There is a gap in the market for mystery boxes that people can send to each other. Rather than going onto shopping platforms specifically looking for mystery boxes, we decided to create a platform directly for this niche. 
+There is a gap in the market for mystery boxes that people can send to each other. Rather than going onto shopping platforms specifically looking for mystery boxes, we decided to create a platform directly for this niche.
 
 ---
 
@@ -191,52 +199,63 @@ Our app uses the Ruby on rails framework. Our App is hosted on the world wide we
 <h4>5. Identify and describe the software to be used in your App.</h4> 
 The software we used in this project includes:
 
-
 1. Ruby on Rails. (Frame work)
-Is a Web Framework that allows us to rapidly deploy a site onto the web and have access. 
+   Is a Web Framework that allows us to rapidly deploy a site onto the web and have access.
 
-
-2. Bundler (GEM)
-Provides a consistent Ruby project environment to track and install the required gems for the application.
-
+2) Bundler (GEM)
+   Provides a consistent Ruby project environment to track and install the required gems for the application.
 
 3. Devise (Gem)
-A way for our webapp to authenticate users signing in and out.
+   A way for our webapp to authenticate users signing in and out.
 
-
-4. Faker (Gem)
-A gem to help populate a test database with information for testing.
-
+4) Faker (Gem)
+   A gem to help populate a test database with information for testing.
 
 5. Bootstrap (Gem)
-Used to rapidly create mobile first website layout and styling utilising CSS, HTML and Javascript.
+   Used to rapidly create mobile first website layout and styling utilising CSS, HTML and Javascript.
 
-
-6. AWS (Gem) (Active Storage)
-A gem to enable us to have users upload images to the Amazon storage base without saving it to our local machine.
-
+6) AWS (Gem) (Active Storage)
+   A gem to enable us to have users upload images to the Amazon storage base without saving it to our local machine.
 
 7. Stripe (Gem) (Online payment system)
-A gem to enable us to have payment transactions within our site hosted by Stripe. 
+   A gem to enable us to have payment transactions within our site hosted by Stripe.
 
-
-8. Cypress On rails (Gem) (Automated Tester)
-A gem for automated web browser testing of our website to ensure things are working accordingly or not depending on the tests you run.
-
+8) Cypress On rails (Gem) (Automated Tester)
+   A gem for automated web browser testing of our website to ensure things are working accordingly or not depending on the tests you run.
 
 9. Database_cleaner (Gem) (Add on for Cypress on Rails)
-A gem add-on to for Cypress to enable us to clean the database when instructed to.
+   A gem add-on to for Cypress to enable us to clean the database when instructed to.
 
 ---
 
 <h4>6. Identify the database to be used in your App and provide a justification for your choice.</h4>
 
-For our application, we used Postgresql. Postgresql is a relationational database system that works with deploying to Heroku rather than the default database rails gives us which is SQL lite. It synergizes extremely well with Rails and thus has a few helper methods in built into it. 
+For our application, we used Postgresql. Postgresql is a relationational database system that works with deploying to Heroku rather than the default database rails gives us which is SQL lite. It synergizes extremely well with Rails and thus has a few helper methods in built into it.
 
 ---
 
-<h4></h4>
-<h4></h4>
+<h4>7. Identify and describe the production database setup.</h4>
+
+Heroku offers a free postgresql add-on for applications using their platform. The add-on was attached and setup automatically during the initial deployment.
+
+Setting up our production database was as simple as editing the application’s ‘database.yml’ and ‘storage.yml’ files to include the environment variables being used for our credentials in the production environment (the heroku dyno) and run a few commands.
+
+In development we would use commands like, `rake db:setup` and `rake db:reset`. However these commands aren’t permitted in our Heroku production environment.
+
+To create our tables and run our migrations we run:
+
+`heroku rake db:schema:load` or `heroku rake db:migrate`
+
+Then to add our seed data:
+
+`heroku rake db:seed`
+
+If at some point we need drop our database tables and start fresh:
+
+`heroku pg:reset DATABASE`
+
+---
+
 <h4>8. Describe the architecture of your App.</h4>
 
 The architecture of our App uses Ruby on Rails Framework. Inside this framework, we have 6 architectural components which include: Models, Routes, Controllers, Views, Assets and Rails itself.
@@ -247,21 +266,15 @@ The architecture of our App uses Ruby on Rails Framework. Inside this framework,
 
 In our application we used Ruby on Rails. Within the framework there are best practices to follow to ensure that if anyone was to work on your code, regarding what they’re looking for they would be able to find.
 
-
 We used the Model, View and Controller components for our App.
-
 
 We kept all our logic inside our controllers which would glue the view and model together so they could communicate to each other, in some instances a view would not be needed to be rendered.
 
-
 For our views, anything relating to being viewed on the screen was located in our views component. There was very little logic inside our views and if there were, it would be simple if statements. For example, if someone is logged in they should be able to see this information/button else it would either render nothing or a message telling the user to sign in to be able to do this feature.
-
 
 For our models, it was simply to ensure that our data was passed through and placed into the database or retrieved as well as creating associations for models so that they could in fact interact with other models to to retrieve, update any data.
 
-
-Our routes are the pathways the controller uses to know where to direct the user or information to. 
-
+Our routes are the pathways the controller uses to know where to direct the user or information to.
 
 The assets are where we keep our styling sheets, images to be used, sound files etc that our app may be required to use if requested.
 
@@ -270,15 +283,15 @@ The assets are where we keep our styling sheets, images to be used, sound files 
 <h4>10. Detail any third party services that your App will use.</h4>
 
 1. AWS
-A way for Users to upload images to the site that are saved to a third party cloud in order to not have files saved onto our local machines.
+   A way for Users to upload images to the site that are saved to a third party cloud in order to not have files saved onto our local machines.
 
 2. Stripe
-A way for Users to buy and sell online using their credit cards in a safe environment.
+   A way for Users to buy and sell online using their credit cards in a safe environment.
 
-3. Heroku 
-A way for our application to be deployed online to the world wide web.
+3. Heroku
+   A way for our application to be deployed online to the world wide web.
 
---- 
+---
 
 <h4>11. Describe (in general terms) the data structure of marketplace apps that are similar to your own (e.g. eBay, Airbnb).</h4>
 
@@ -302,7 +315,6 @@ Has_many
 
 Has_many THROUGH another
 
-
 That way each table can interact with each other whilst still being a separate entity. For example, a listing belongs_to a user where as a user has_many listings. A product order belongs to a user and listing while a listing has_one product order and a user has_many product orders.
 
 ---
@@ -318,18 +330,13 @@ Our Database Schema Design
 
 User Stories:
 
-
 - As Nathaniel, I want to be be able to give someone a unique gift because I am utterly clueless at gifting ideas.
 
-
-- As Joshua, I want to be able to sell items lying around my house to clean up clutter and make some cash.
-
+* As Joshua, I want to be able to sell items lying around my house to clean up clutter and make some cash.
 
 - As Jim, I want to purchase a surprise item because I'm curious and have cash lying around.
 
-
-- As Bob, I want to buy other peoples unwanted items in case there's something valuable to salvage or sell.
-
+* As Bob, I want to buy other peoples unwanted items in case there's something valuable to salvage or sell.
 
 - As Hawthorne, I want to get rid of unwanted items and would like to get paid something for it.
 
@@ -372,7 +379,7 @@ Register, Log in and Account settings page.
 
 <h4>17. Describe the way tasks are allocated and tracked in your project.</h4>
 
-There is a group discussion at the start of the day outlining the plans for the current day. What tasks need to be done, any brief discussions on current tasks i.e any issues that may be faced with the said task such as blockages in the work flow. 
+There is a group discussion at the start of the day outlining the plans for the current day. What tasks need to be done, any brief discussions on current tasks i.e any issues that may be faced with the said task such as blockages in the work flow.
 
 During the day while we’re working, we’ll communicate often, usually through slack detailing any issues we’re coming up with and letting each other know where we are on our current tasks for the day. Trello comes into place here as a we will also place cards of what we’re doing up on trello including any bugs or errors that we’ll encounter.
 
@@ -384,14 +391,13 @@ Discuss the feature that needs to be created, going over the wireframes and its 
 
 ---
 
-
 <h4>19. Provide an overview and description of your Source control process.</h4>
 
-For our source control system in place we used Github. Our process to use github was to all clone from a single repo created by a member of the team and from that master branch we then created another branch called Dev. 
+For our source control system in place we used Github. Our process to use github was to all clone from a single repo created by a member of the team and from that master branch we then created another branch called Dev.
 
-Once the initial setup of the app was created and we were all up to date with the repo, we then created our own branches off from dev. 
+Once the initial setup of the app was created and we were all up to date with the repo, we then created our own branches off from dev.
 
-To ensure we did not have any merge conflicts issues, each member was given a certain feature to work from and once the feature was created and was working they’d push their work up to github. Someone on the team who didn’t write the code would then do a pull request from that branch going into the dev branch ensuring that the file was able to be merged and to go over all the changes added or removed. 
+To ensure we did not have any merge conflicts issues, each member was given a certain feature to work from and once the feature was created and was working they’d push their work up to github. Someone on the team who didn’t write the code would then do a pull request from that branch going into the dev branch ensuring that the file was able to be merged and to go over all the changes added or removed.
 
 On regular intervals once dev branch has been updated to the latest version, we would all pull from the dev origin into our local machine then merge and repeat the process to ensure that we were all up to date.
 
@@ -400,7 +406,6 @@ On regular intervals once dev branch has been updated to the latest version, we 
 <h4>20. Provide an overview and description of your Testing process.</h4>
 
 Automated Testing to see if a certain part of an app runs as intended or halts or throws back errors when intended.
-
 
 Along with automated testing, we would also go into apps intentionally trying to break it in order to do the said task.
 
@@ -411,12 +416,11 @@ Throughout the day, we would also manually test our partners code and give feedb
 ---
 
 <h4>21. Discuss and analyse requirements related to information system security.</h4>
-The fundamental purpose of information system security is to protect infernal information from internal, external, and natural threat. 
+The fundamental purpose of information system security is to protect infernal information from internal, external, and natural threat.
 
-To ensure information system security, information source authentication, access control, no illegal software residency, no unauthorized operation is required. The information system security mechanism shall judge the source of the information, it shall identify the information of the counterfeit source. 
+To ensure information system security, information source authentication, access control, no illegal software residency, no unauthorized operation is required. The information system security mechanism shall judge the source of the information, it shall identify the information of the counterfeit source.
 
 It can ensure that the confidential information is not eavesdropped or its true meaning cannot be understood by eavesdroppers. It can ensure data consistency and prevent data from being tampered with by illegal users. It can ensure that the use of information and resources by legitimate users isnot improperly rejected. It can help establish an effective accountability measures to prevent users from denying their behavior, which is extremely important in e-commerce. It can control over the dissemination and content of information.
-
 
 ---
 
@@ -440,7 +444,7 @@ It can ensure that the confidential information is not eavesdropped or its true 
 <h4>23. Research what your legal obligations are in relation to handling user data.
 </h4>
 
-According to Australia’s Privacy law, the Privacy Act 1988 which regulates the handling of personal information about individuals. We have the responsibility to protect personal information from theft, misuse, interference, loss, unauthorized access, modification, disclosure. 
+According to Australia’s Privacy law, the Privacy Act 1988 which regulates the handling of personal information about individuals. We have the responsibility to protect personal information from theft, misuse, interference, loss, unauthorized access, modification, disclosure.
 
 We shall also take reasonable steps to destroy or de-identify personal information when it is no longer needed for any purpose permitted under the Privacy Act 1988. This might include shredding documents or storing them in a secure area.
 
@@ -466,8 +470,8 @@ According to Australian Privacy Principles (APPs)
 
 - Although we can collect and use personal information, we generally need the individuals consent first.
 
-- We must not use or disclose personal information for a direct marketingpurpose, except in limited circumstances. 
-    - We need to have a clear and up to date privacy policy that outlines the information we:
-        - collect
-        - what we use it for
-        - how we protect it
+- We must not use or disclose personal information for a direct marketingpurpose, except in limited circumstances.
+  - We need to have a clear and up to date privacy policy that outlines the information we:
+    - collect
+    - what we use it for
+    - how we protect it
