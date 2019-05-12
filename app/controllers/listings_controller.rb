@@ -6,7 +6,7 @@ class ListingsController < ApplicationController
   # GET /listings
   # GET /listings.json
   def index
-
+    
   end
 
   # GET /listings/1
@@ -110,6 +110,7 @@ class ListingsController < ApplicationController
       @listings = Listing.all
       @purchased_listings = Listing.joins(:product_order)
       @unpurchased_listings = @listings - @purchased_listings
+      byebug
     end
 
 end
