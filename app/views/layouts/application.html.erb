@@ -4,6 +4,7 @@
     <title>Mystery Box Market</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <script src="https://js.stripe.com/v3/"></script>
@@ -17,9 +18,7 @@
         <%= link_to "Mystery Box Market", root_path, class: "navbar-brand" %>
         <div class="welcome-user">
           <% if user_signed_in? %>
-            <h5>Welcome <%= current_user.username %>!</h5>
-          <% else %>
-            <h5>Welcome! </h5>
+            <h5 class="mb-0">Welcome <%= current_user.username %>!</h5>
           <% end %>
         </div>
         <!-- Collapse button -->
@@ -67,8 +66,42 @@
     </div>
     <!-- Page Wrapper -->
 
-    <footer class="footer page-footer mt-4">
-      <div class="footer-copyright text-center py-3">&copy; 2019 Copyright: MBM</div>
+    <footer class="footer page-footer mt-5">
+      <div class="container">
+        <div class="row my-5">
+          <div class="col-sm-4 text-center text-md-left">
+            <p><%= link_to "Privacy Policy", privacy_policy_path %></p>
+          </div><!-- end of column -->
+          <div class="col-sm-4 text-center">
+            <p class="footer-copyright"><small>&copy; 2019</small></p>
+          </div><!-- end of column -->
+          <div class="col-sm-4 text-center text-md-right">
+            <p><%= link_to "Terms &amp; Conditions".html_safe, terms_path %></p>
+          </div><!-- end of column -->
+        </div><!-- end of .row -->
+        <p class="h5 text-center mt-5 mb-4">Development Team:</p>
+        <div class="row text-center pb-2">
+          <div class="col-sm-4">
+            <p>Jim Farrugia<br />
+              <small><%= link_to "Portfolio", "https://jimfarrugia.github.io" %>&nbsp; |</small>
+              <small>&nbsp;<%= link_to "Github", "https://github.com/jimfarrugia" %>&nbsp; |</small>
+              <small>&nbsp;<%= link_to "Blog", "https://medium.com/@jim_farrugia" %></small>
+            </p>
+          </div><!-- end of column -->
+          <div class="col-sm-4">
+            <p>Joshua Tu<br />
+              <small><%= link_to "Portfolio", "https://joshua-tu.github.io" %>&nbsp; |</small>
+              <small>&nbsp;<%= link_to "Github", "https://github.com/Joshua-Tu" %></small>
+            </p>
+          </div><!-- end of column -->
+          <div class="col-sm-4">
+            <p>Nathaniel Morales<br />
+              <small><%= link_to "Portfolio", "https://moralesn1.github.io" %>&nbsp; |</small>
+              <small>&nbsp;<%= link_to "Github", "https://github.com/moralesn1" %></small>
+            </p>
+          </div><!-- end of column -->
+        </div><!-- end of .row -->
+      </div><!-- end .footer.container -->
     </footer>
 
     <script type="text/javascript">

@@ -107,7 +107,7 @@ class ListingsController < ApplicationController
     end
 
     def set_purchased_and_unpurchased_listings
-      @listings = Listing.all
+      @listings = Listing.all.order('id DESC')
       @purchased_listings = Listing.joins(:product_order)
       @unpurchased_listings = @listings - @purchased_listings
       byebug
